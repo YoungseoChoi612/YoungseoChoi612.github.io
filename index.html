@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="최영서 (Youngseo Choi) · 해운항만 물류, 해상 리스크, 항만 효율성, 북극항로를 연구하는 물류경영학 박사. 경력, 논문, 수상, 연락처.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="최영서 | Youngseo CHOI">
+<meta property="og:description" content="해운항만 물류 · 해상 리스크 · 북극항로 연구 | Maritime logistics, port management and Arctic shipping">
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Youngseo CHOI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>
+  (function () {
+    var lang = "ko";
+    try { var saved = localStorage.getItem("ycs-lang"); if (saved === "en" || saved === "ko") lang = saved; } catch (e) {}
+    if (location.hash === "#en") lang = "en";
+    if (location.hash === "#ko") lang = "ko";
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang;
+  })();
+</script>
+<style>
+/* Layout: a night-watch port logbook. Deliberately dark-only: left rail of section labels, right column of entries;
+   ice-blue accent for structure, a single amber signal for "current". Mono for dates, coordinates and figures. */
+:root {
+  color-scheme: dark;
+  --bg: #0c0e11;
+  --surface: #13171c;
+  --raise: #1a1f25;
+  --ink: #f1f3f5;
+  --muted: #9aa5b0;
+  --line: #262d35;
+  --accent: #9fd4e6;
+  --accent-soft: #15262d;
+  --signal: #f0a35e;
+  --font-display: "Big Shoulders Display", "IBM Plex Sans KR", "Arial Narrow", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "IBM Plex Sans KR", ui-monospace, Consolas, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-4: clamp(3.25rem, 9vw, 6.5rem);
+}
+
+html:not([data-lang="en"]) [data-l="en"],
+html[data-lang="en"] [data-l="ko"] { display: none !important; }
+html:not([data-lang="en"]) body { word-break: keep-all; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.65;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; gap: 24px; padding-block: 12px; }
+.brand { font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.nav { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { color: var(--muted); text-decoration: none; font-size: var(--step--1); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; padding-block: 4px; }
+.nav a:hover { color: var(--ink); }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; flex: none; }
+.lang button {
+  font: 500 0.75rem / 1 var(--font-mono); letter-spacing: 0.06em; color: var(--muted);
+  background: transparent; border: 0; border-radius: 999px; padding: 6px 10px; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.lang button:hover:not([aria-pressed="true"]) { color: var(--ink); }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr); padding-block: 72px 56px; }
+.coords { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); letter-spacing: 0.02em; display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.coords > span::before { content: "◇ "; color: var(--accent); }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 800; font-size: var(--step-4);
+  line-height: 0.9; text-transform: uppercase; letter-spacing: 0.005em; margin-top: 18px;
+}
+.hero h1 [data-l="ko"] .big { font-family: "IBM Plex Sans KR", var(--font-body); font-weight: 700; letter-spacing: -0.02em; font-size: 0.82em; }
+.hero h1 .sub { display: block; font-family: var(--font-body); font-weight: 500; font-size: var(--step-1); letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-top: 16px; line-height: 1.2; }
+.lede { font-size: var(--step-1); max-width: 60ch; margin-top: 28px; line-height: 1.6; color: color-mix(in srgb, var(--ink) 88%, var(--bg)); }
+.lede strong { font-weight: 600; color: var(--ink); }
+.hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 26px; }
+.now {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: var(--step--1); border: 1px solid var(--line); background: var(--surface);
+  padding: 8px 14px; border-radius: 999px;
+}
+.now .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--signal) 22%, transparent); flex: none; }
+.hero-links { display: flex; gap: 16px; flex-wrap: wrap; font-size: var(--step--1); font-weight: 500; }
+.hero-links a { text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); padding-bottom: 1px; }
+.hero-links a:hover { border-bottom-color: var(--accent); }
+.portrait { margin: 0; }
+.portrait .frame { position: relative; border-radius: 6px; overflow: hidden; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.portrait img {
+  display: block; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%;
+  filter: grayscale(1) contrast(1.08) brightness(0.92);
+}
+.portrait .frame::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, transparent 58%, color-mix(in srgb, var(--bg) 65%, transparent));
+  box-shadow: inset 0 0 0 1px var(--line); border-radius: inherit;
+}
+.portrait figcaption { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-top: 10px; display: flex; justify-content: space-between; gap: 8px; }
+
+/* Figures strip */
+.figures { border-block: 1px solid var(--line); background: var(--surface); }
+.figures .wrap { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.fig { padding: 20px 16px 18px; border-left: 1px solid var(--line); }
+.fig:first-child { border-left: 0; padding-left: 0; }
+.fig b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 2.25rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.fig span { display: block; font-size: var(--step--1); color: var(--muted); margin-top: 6px; line-height: 1.35; }
+
+/* Sections */
+section.block .wrap { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-block: 56px; border-bottom: 1px solid var(--line); }
+section.block:last-of-type .wrap { border-bottom: 0; }
+.label h2 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.1; position: sticky; top: 76px; }
+.label h2 [data-l="ko"] { font-family: "IBM Plex Sans KR", var(--font-body); font-weight: 700; letter-spacing: -0.01em; font-size: 0.9em; }
+.label h2 small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.02em; text-transform: none; color: var(--muted); margin-top: 8px; }
+.content { min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+
+/* Research focus */
+.focus { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.focus > div { padding: 20px 20px 22px 0; border-bottom: 1px solid var(--line); }
+.focus > div:nth-child(2n) { padding-left: 20px; border-left: 1px solid var(--line); }
+.focus h3 { font-size: var(--step-1); font-weight: 600; line-height: 1.35; }
+.focus p { color: var(--muted); margin-top: 8px; font-size: 0.9375rem; }
+.focus .tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); display: block; margin-bottom: 6px; }
+
+/* Timeline entries */
+.entries { display: flex; flex-direction: column; }
+.entry { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding-block: 20px; border-top: 1px solid var(--line); }
+.entry:first-child { border-top: 0; padding-top: 0; }
+.entry .when { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.entry .when .current { color: var(--signal); font-weight: 500; }
+.entry h3 { font-size: var(--step-1); font-weight: 600; line-height: 1.35; }
+.entry .org { color: var(--muted); margin-top: 2px; }
+.entry ul { margin: 10px 0 0; padding-left: 1.1em; }
+.entry li { margin-top: 4px; }
+.entry li::marker { color: var(--accent); }
+
+/* Theses */
+.theses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.thesis { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.thesis .kind { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; display: flex; justify-content: space-between; gap: 8px; }
+.thesis h3 { font-size: var(--step-1); font-weight: 600; line-height: 1.4; }
+.thesis p { color: var(--muted); font-size: 0.9375rem; }
+.thesis-open, .abs-link, .abs-close { font: inherit; color: inherit; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; }
+.thesis-open { line-height: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); text-underline-offset: 4px; }
+.thesis-open:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.abs-link { margin-top: auto; padding-top: 4px; color: var(--accent); font-size: var(--step--1); font-weight: 500; align-self: flex-start; }
+.abs-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.thesis-open:focus-visible, .abs-link:focus-visible, .abs-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+dialog.abstract {
+  width: min(760px, calc(100vw - 32px)); max-height: min(84vh, 820px); overflow: auto;
+  padding: 0; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--ink);
+}
+dialog.abstract::backdrop { background: rgba(4, 6, 8, 0.72); }
+.abs-head {
+  position: sticky; top: 0; z-index: 1; background: var(--surface);
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;
+  padding: 22px 26px 16px; border-bottom: 1px solid var(--line);
+}
+.abs-kind { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 6px; }
+.abs-head h3 { font-size: var(--step-1); font-weight: 600; line-height: 1.4; }
+.abs-close { flex: none; font-size: var(--step--1); font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; }
+.abs-close:hover { color: var(--ink); border-color: var(--muted); }
+.abs-body { padding: 20px 26px 28px; display: flex; flex-direction: column; gap: 14px; line-height: 1.8; font-size: 0.96875rem; max-width: 72ch; }
+.abs-body .kw { color: var(--muted); font-size: var(--step--1); border-top: 1px solid var(--line); padding-top: 14px; }
+.abs-body .kw b { color: var(--accent); font-weight: 600; margin-right: 8px; }
+
+/* Publications */
+.note { color: var(--muted); font-size: var(--step--1); }
+.pub-year { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+.pub-year:first-of-type { border-top: 0; padding-top: 0; }
+.pub-year > .y { font-family: var(--font-display); font-weight: 800; font-size: 1.75rem; line-height: 1; color: var(--accent); }
+.pubs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.pubs li { line-height: 1.5; word-break: normal; }
+.pubs .t { font-weight: 500; }
+.pubs .meta { display: block; color: var(--muted); font-size: 0.9375rem; }
+.pubs .me { font-weight: 600; color: var(--ink); }
+.pubs a.doi { font-family: var(--font-mono); font-size: 0.75rem; word-break: break-all; }
+.status { display: inline-block; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 1px 7px; border-radius: 3px; border: 1px solid currentColor; color: var(--signal); margin-left: 6px; vertical-align: 1px; }
+
+.talks { list-style: none; margin: 0; padding: 0; }
+.talks li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 14px; padding-block: 10px; border-top: 1px solid var(--line); align-items: baseline; word-break: normal; }
+.talks li:first-child { border-top: 0; }
+.talks .y { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+.talks .venue { display: block; color: var(--muted); font-size: 0.875rem; }
+.talks .fmt { font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+
+/* Projects */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: 500 var(--step--1) / 1 var(--font-body); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  display: inline-flex; gap: 8px; align-items: center;
+}
+.chip .n { font-family: var(--font-mono); color: var(--muted); font-size: 0.75rem; }
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.7; }
+.proj-summary { color: var(--muted); font-size: 0.9375rem; }
+.proj-summary b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.projects { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.projects > li { border-bottom: 1px solid var(--line); }
+.projects details > summary {
+  list-style: none; cursor: pointer; display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) auto; gap: 16px; padding-block: 14px; align-items: baseline;
+}
+.projects details > summary::-webkit-details-marker { display: none; }
+.projects details > summary:hover .pt { color: var(--accent); }
+.projects .yr { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); font-variant-numeric: tabular-nums; }
+.projects .pt { font-weight: 500; line-height: 1.45; }
+.projects .pt small { display: block; font-weight: 400; color: var(--muted); font-size: 0.875rem; margin-top: 2px; }
+.projects .cc { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.projects .cc::after { content: "+"; color: var(--muted); font-size: 1rem; line-height: 1; width: 12px; text-align: center; }
+.projects details[open] .cc::after { content: "−"; }
+.projects .body { padding: 0 0 18px 112px; display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; }
+.projects .body ul { margin: 0; padding-left: 1.1em; }
+.projects .body li { margin-top: 3px; }
+.projects .body li::marker { color: var(--accent); }
+.projects dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; font-size: 0.875rem; }
+.projects dt { color: var(--muted); }
+.projects dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+/* Methods */
+.methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; }
+.methods h3 { font-size: var(--step--1); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 8px; }
+.methods ul { list-style: none; margin: 0; padding: 0; }
+.methods li { padding-block: 5px; border-top: 1px solid var(--line); font-size: 0.9375rem; display: flex; justify-content: space-between; gap: 12px; }
+.methods li:first-child { border-top: 0; }
+.methods li .tool { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+
+.pairs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.pairs h3 { font-size: var(--step--1); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 10px; }
+.kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 16px; margin: 0; }
+.kv dt { font-weight: 600; }
+.kv dd { margin: 0; color: var(--muted); }
+.kv dd strong { color: var(--ink); font-weight: 600; }
+.kv dt.mono { font-weight: 400; color: var(--muted); }
+
+/* Contact */
+.contact-list { display: flex; flex-direction: column; gap: 10px; }
+.contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.contact-row .k { font-size: 0.75rem; color: var(--muted); width: 96px; letter-spacing: 0.04em; }
+.contact-row .v { font-family: var(--font-mono); font-size: var(--step-0); user-select: all; word-break: break-all; flex: 1 1 200px; min-width: 0; }
+.contact-row .d { display: block; font-family: var(--font-body); font-size: var(--step--1); color: var(--muted); user-select: none; margin-top: 2px; word-break: keep-all; }
+.contact-row a.v { user-select: auto; text-decoration: none; }
+.contact-row a.v:hover { text-decoration: underline; }
+.copy, .go { font: 500 var(--step--1) / 1 var(--font-body); background: transparent; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 7px 14px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+.copy:hover, .go:hover { background: var(--accent-soft); }
+.sub-h { font-size: var(--step--1); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
+
+footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--step--1); font-family: var(--font-mono); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .hero .wrap { padding-block: 44px 40px; }
+  section.block .wrap { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 40px; }
+  .label h2 { position: static; }
+  html { scroll-padding-top: 112px; }
+  .topbar .wrap { flex-wrap: wrap; row-gap: 8px; }
+  .nav { order: 3; flex-basis: 100%; margin-left: 0; gap: 16px; padding-bottom: 2px; }
+  .lang { margin-left: auto; }
+  .figures .wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fig:nth-child(4) { border-left: 0; padding-left: 0; }
+  .fig:nth-child(n+4) { border-top: 1px solid var(--line); }
+  .projects .body { padding-left: 0; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+}
+@media (max-width: 600px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .portrait { max-width: 200px; order: -1; }
+  .figures .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fig { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--line); }
+  .fig:nth-child(-n+2) { border-top: 0; }
+  .fig:nth-child(2n) { padding-left: 16px !important; border-left: 1px solid var(--line) !important; }
+  .focus, .theses, .methods, .pairs { grid-template-columns: minmax(0, 1fr); }
+  .focus > div:nth-child(2n) { padding-left: 0; border-left: 0; }
+  .entry { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .pub-year { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .talks li { grid-template-columns: 44px minmax(0, 1fr); }
+  .talks .fmt { grid-column: 2; }
+  .projects details > summary { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; }
+  .projects .yr { grid-column: 1 / -1; }
+  .contact-row { gap: 6px 12px; }
+  .contact-row .k { width: 100%; }
+}
+</style>
+</head>
+<body>
+<style>
+.stack { display: flex; flex-direction: column; gap: 28px; }
+.ltag { display: inline-block; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 1px 7px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); margin-left: 6px; vertical-align: 1px; }
+.talks .fmt.lead { color: var(--signal); }
+.awards li { grid-template-columns: 72px minmax(0, 1fr); }
+.thesis .facts { display: flex; flex-wrap: wrap; gap: 4px 16px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-top: auto; }
+.thesis .note-pub { font-size: var(--step--1); color: var(--muted); }
+.thesis .note-pub em { color: var(--ink); font-style: italic; }
+.entry .gpa { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+.kv dd small { display: block; color: var(--muted); }
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span data-l="ko">최영서</span><span data-l="en">Youngseo Choi</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#research"><span data-l="ko">연구</span><span data-l="en">Research</span></a>
+      <a href="#experience"><span data-l="ko">경력</span><span data-l="en">Experience</span></a>
+      <a href="#publications"><span data-l="ko">논문</span><span data-l="en">Publications</span></a>
+      <a href="#awards"><span data-l="ko">수상</span><span data-l="en">Awards</span></a>
+      <a href="#methods"><span data-l="ko">분석방법</span><span data-l="en">Methods</span></a>
+      <a href="#contact"><span data-l="ko">연락처</span><span data-l="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-ko" data-set="ko" aria-pressed="true">KO</button>
+      <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="coords">
+          <span><span data-l="ko">해운항만 물류 연구자</span><span data-l="en">Maritime logistics &amp; port researcher</span></span>
+          <span><span data-l="ko">인천 · 서울</span><span data-l="en">Incheon · Seoul, Korea</span></span>
+          <span class="mono">37.38°N 126.63°E</span>
+        </div>
+        <h1>
+          <span data-l="ko"><span class="big">최영서</span><span class="sub">Youngseo Choi</span></span>
+          <span data-l="en">Youngseo<br>Choi<span class="sub">최영서</span></span>
+        </h1>
+        <p class="lede" data-l="ko"><strong>해운항만 물류</strong>와 <strong>항만 경영</strong>을 연구하는 물류경영학 박사입니다. 인천대학교에서 박사학위를 받았고 <strong>30편이 넘는 학술지 논문</strong>을 발표했습니다. 지속가능한 항만 운영, LNG 벙커링·북극 물류 등 <strong>해상 리스크 관리</strong>, 항만 효율성 평가를 전문으로 하며, 실증 데이터와 구조 모형으로 현장의 문제를 풉니다. 이 방법론으로 <strong>해운 탈탄소</strong>와 친환경 항만 전환에 기여하고자 합니다.</p>
+        <p class="lede" data-l="en">I research <strong>maritime logistics</strong> and <strong>port management</strong>, with a Ph.D. from Incheon National University and <strong>more than 30 peer-reviewed journal articles</strong>. I specialize in sustainable port operations, <strong>maritime risk management</strong> such as LNG bunkering and Arctic logistics, and port efficiency, using empirical data and structural modelling to solve real-world maritime problems. I aim to apply these methods to <strong>shipping decarbonization</strong> and the transition to green ports.</p>
+        <div class="hero-meta">
+          <div class="now"><span class="dot" aria-hidden="true"></span><span data-l="ko">(사)한국북극항로협회 부연구위원 · 2026년 7월부터</span><span data-l="en">Associate Research Fellow, Korea Arctic Sea Route Association · since July 2026</span></div>
+          <div class="hero-links">
+            <a href="https://orcid.org/0009-0001-7292-2894" target="_blank" rel="noopener">ORCID ↗</a>
+            <a href="https://scholar.google.com/citations?user=dK9TJJ0AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="figures" aria-label="At a glance">
+    <div class="wrap">
+      <div class="fig"><b>34</b><span data-l="ko">학술지 논문</span><span data-l="en">journal articles</span></div>
+      <div class="fig"><b>26</b><span data-l="ko">학회 발표</span><span data-l="en">conference presentations</span></div>
+      <div class="fig"><b>18</b><span data-l="ko">수상</span><span data-l="en">awards and honors</span></div>
+      <div class="fig"><b>2</b><span data-l="ko">해양수산부 장관상</span><span data-l="en">Minister of Oceans and Fisheries Awards</span></div>
+      <div class="fig"><b>4.42</b><span data-l="ko">박사과정 평점 (4.5 만점)</span><span data-l="en">Ph.D. GPA (out of 4.5)</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="research">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">연구 분야</span><span data-l="en">Research</span><small><span data-l="ko">네 가지 연구 축</span><span data-l="en">Four lines of work</span></small></h2></div>
+      <div class="content">
+        <div class="focus">
+          <div>
+            <span class="tag"><span data-l="ko">탈탄소 · 항만</span><span data-l="en">Decarbonization · ports</span></span>
+            <h3><span data-l="ko">해운 탈탄소와 친환경 항만 운영</span><span data-l="en">Shipping decarbonization and green port operations</span></h3>
+            <p data-l="ko">항만 하역장비 친환경 전환에 따른 전력 수요·온실가스 감축 분석, 해운산업 메탄올 연료 연구, 항만 대기질 개선 정책 우선순위.</p>
+            <p data-l="en">Power demand and GHG reduction from greening port cargo handling equipment, methanol as a shipping fuel, and policy priorities for port air quality.</p>
+          </div>
+          <div>
+            <span class="tag"><span data-l="ko">리스크 · 안전</span><span data-l="en">Risk · safety</span></span>
+            <h3><span data-l="ko">해상 리스크 평가와 안전관리</span><span data-l="en">Maritime risk assessment and safety management</span></h3>
+            <p data-l="ko">선박 간(STS) LNG 벙커링 작업의 위험요인 분석(박사학위논문), ISM·CFPR·Fuzzy-IPA를 활용한 위험 구조 모형화.</p>
+            <p data-l="en">Risk factors in ship-to-ship LNG bunkering (doctoral dissertation) and structural risk modelling with ISM, CFPR and Fuzzy-IPA.</p>
+          </div>
+          <div>
+            <span class="tag"><span data-l="ko">효율성 · DEA</span><span data-l="en">Efficiency · DEA</span></span>
+            <h3><span data-l="ko">항만 운영 효율성과 물류 최적화</span><span data-l="en">Port operational efficiency and logistics optimization</span></h3>
+            <p data-l="ko">DEA·SBM으로 컨테이너 터미널, 양곡 터미널, 창고업체, 공항의 효율성을 평가하고, 배송 경로 최적화와 포지셔닝 분석을 수행.</p>
+            <p data-l="en">DEA and SBM efficiency evaluation of container and grain terminals, warehouse companies and airports, plus route optimization and positioning analysis.</p>
+          </div>
+          <div>
+            <span class="tag"><span data-l="ko">북극 · 극지</span><span data-l="en">Arctic · polar</span></span>
+            <h3><span data-l="ko">북극항로와 극지 물류</span><span data-l="en">Arctic shipping routes and polar logistics</span></h3>
+            <p data-l="ko">북극항로(NSR) 통항량 예측, 사하공화국·티크시항·레나강 물류 연구, 포항시 북극해운정보센터 구축 방안.</p>
+            <p data-l="en">Northern Sea Route traffic forecasting, logistics in the Sakha Republic, Tiksi Port and the Lena River, and planning for Pohang's Arctic Shipping Information Center.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">경력</span><span data-l="en">Experience</span><small><span data-l="ko">재직 및 연구 이력</span><span data-l="en">Positions held</span></small></h2></div>
+      <div class="content">
+        <div class="entries">
+          <article class="entry">
+            <div class="when"><span class="current"><span data-l="ko">2026.07 – 현재</span><span data-l="en">Jul 2026 – now</span></span><br><span data-l="ko">서울</span><span data-l="en">Seoul</span></div>
+            <div>
+              <h3><span data-l="ko">부연구위원</span><span data-l="en">Associate Research Fellow</span></h3>
+              <p class="org"><span data-l="ko">(사)한국북극항로협회</span><span data-l="en">Korea Arctic Sea Route Association</span></p>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="when"><span data-l="ko">2026.05 – 현재</span><span data-l="en">May 2026 – now</span></div>
+            <div>
+              <h3><span data-l="ko">심사위원 (Peer Reviewer)</span><span data-l="en">Peer Reviewer</span></h3>
+              <p class="org">Reliability Engineering &amp; System Safety (RESS) · SCI/SCIE</p>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="when"><span data-l="ko">2021 – 2025.08</span><span data-l="en">2021 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
+            <div>
+              <h3><span data-l="ko">북방사업 조교</span><span data-l="en">Assistant, Northern Logistics Program</span></h3>
+              <p class="org"><span data-l="ko">인천대학교 동북아물류대학원</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p>
+              <ul data-l="ko">
+                <li>북방물류 교육협력 및 인재양성 사업 (전액 장학)</li>
+              </ul>
+              <ul data-l="en">
+                <li>Northern Logistics Educational Cooperation and Human Resources Development Program (full scholarship)</li>
+              </ul>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="when"><span data-l="ko">2021 – 2025.08</span><span data-l="en">2021 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
+            <div>
+              <h3><span data-l="ko">시스템 다이내믹스 수업 조교</span><span data-l="en">Teaching Assistant, System Dynamics</span></h3>
+              <p class="org"><span data-l="ko">인천대학교 동북아물류대학원</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="when"><span data-l="ko">2020 – 2025.08</span><span data-l="en">2020 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
+            <div>
+              <h3><span data-l="ko">교육 조교</span><span data-l="en">Educational Assistant</span></h3>
+              <p class="org"><span data-l="ko">인천대학교 동북아물류대학원</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p>
+              <ul data-l="ko">
+                <li>북극 원주민 대상 전액 장학 프로그램 운영 지원</li>
+              </ul>
+              <ul data-l="en">
+                <li>Full Scholarship Program for Arctic Indigenous People</li>
+              </ul>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="when"><span data-l="ko">2020 – 2025.08</span><span data-l="en">2020 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
+            <div>
+              <h3><span data-l="ko">연구원</span><span data-l="en">Researcher</span></h3>
+              <p class="org"><span data-l="ko">인천대학교 동북아물류경영연구소</span><span data-l="en">Northeast Asia Logistics and Management Research Institute, Incheon National University</span></p>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="when"><span data-l="ko">2020 – 2025.08</span><span data-l="en">2020 – Aug 2025</span></div>
+            <div>
+              <h3><span data-l="ko">학술대회 스태프</span><span data-l="en">Conference Staff</span></h3>
+              <p class="org">ICASL (International Conference of Asian Shipping and Logistics)</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">학력</span><span data-l="en">Education</span><small><span data-l="ko">학위와 학위논문</span><span data-l="en">Degrees and theses</span></small></h2></div>
+      <div class="content">
+        <div class="entries">
+          <article class="entry">
+            <div class="when"><span data-l="ko">2022.09 – 2025.08</span><span data-l="en">2022 – 2025</span></div>
+            <div><h3><span data-l="ko">물류경영학 박사</span><span data-l="en">Ph.D. in Logistics Management</span></h3><p class="org"><span data-l="ko">인천대학교 동북아물류대학원 물류경영학과</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p><p class="gpa">GPA 4.42 / 4.5</p></div>
+          </article>
+          <article class="entry">
+            <div class="when"><span data-l="ko">2020.09 – 2022.08</span><span data-l="en">2020 – 2022</span></div>
+            <div><h3><span data-l="ko">물류경영학 석사</span><span data-l="en">M.Sc. in Logistics Management</span></h3><p class="org"><span data-l="ko">인천대학교 동북아물류대학원 물류경영학과</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p><p class="gpa">GPA 4.44 / 4.5</p></div>
+          </article>
+          <article class="entry">
+            <div class="when">2015 – 2020</div>
+            <div><h3><span data-l="ko">중영국제학과 학사</span><span data-l="en">B.A. in Chinese (Chinese–English Bilingual Specialization)</span></h3><p class="org"><span data-l="ko">상하이교통대학교 (Shanghai Jiao Tong University), 중국</span><span data-l="en">Shanghai Jiao Tong University, China</span></p><p class="gpa">GPA 3.28 / 4.00</p></div>
+          </article>
+        </div>
+        <div class="theses">
+          <article class="thesis">
+            <div class="kind"><span><span data-l="ko">박사학위논문</span><span data-l="en">Doctoral dissertation</span></span><span>2025</span></div>
+            <h3>Analyzing Risk Factors in Ship-to-Ship Liquefied Natural Gas Bunkering Operations</h3>
+            <p data-l="ko">선박 간(Ship-to-Ship) LNG 벙커링 작업의 위험요인을 분석한 연구입니다.</p>
+            <p data-l="en">A study of the risk factors in ship-to-ship LNG bunkering operations.</p>
+            <p class="note-pub"><span data-l="ko">학술지 게재:</span><span data-l="en">Published in</span> <em>The Asian Journal of Shipping and Logistics</em>, 41(1), 52–60 (2025)</p>
+            <div class="facts"><span><span data-l="ko">지도교수 여기태</span><span data-l="en">Supervisor: Prof. Gi-tae Yeo</span></span></div>
+          </article>
+          <article class="thesis">
+            <div class="kind"><span><span data-l="ko">석사학위논문</span><span data-l="en">Master's thesis</span></span><span>2022</span></div>
+            <h3><span data-l="ko">사회관계망 분석을 활용한 내륙수로 연구동향 분석에 관한 연구</span><span data-l="en">An Analysis of Research Trends of Inland Waterway Utilizing Social Network Analysis</span></h3>
+            <p data-l="ko">사회관계망 분석(SNA)으로 내륙수로 분야의 연구동향을 분석한 연구로, 2022 한국해운항만학술단체협의회 협회장상을 받았습니다.</p>
+            <p data-l="en">Maps research trends on inland waterways with social network analysis. The conference version won the 2022 KASPS Association President's Award.</p>
+            <p class="note-pub"><span data-l="ko">학술지 게재:</span><span data-l="en">Published in</span> <em>The Asian Journal of Shipping and Logistics</em>, 39(2), 52–59 (2023)</p>
+            <div class="facts"><span><span data-l="ko">지도교수 여기태</span><span data-l="en">Supervisor: Prof. Gi-tae Yeo</span></span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="publications">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">논문</span><span data-l="en">Publications</span><small><span data-l="ko">학술지 논문 34편 · 주저자 8편</span><span data-l="en">34 journal articles · 8 as first author</span></small></h2></div>
+      <div class="content">
+        <p class="note" data-l="ko">논문 제목과 학술지명은 영문 표기를 따릅니다. ‘국문’ 표시는 한국어로 쓰인 논문입니다.</p>
+        <div class="stack" id="pub-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="talks">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">학회 발표</span><span data-l="en">Talks</span><small><span data-l="ko">26건 · 대표발표 12건</span><span data-l="en">26 presentations · 12 as lead presenter</span></small></h2></div>
+      <div class="content">
+        <ul class="talks" id="talk-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">연구과제</span><span data-l="en">Projects</span><small><span data-l="ko">참여 연구과제</span><span data-l="en">Research projects</span></small></h2></div>
+      <div class="content">
+        <ul class="projects">
+          <li><details open>
+            <summary>
+              <span class="yr">2025.06–12</span>
+              <span class="pt"><span data-l="ko">컨테이너 항만의 하역장비 친환경 전환에 따른 필요전력량 및 온실가스 감축량 분석 (인천항을 중심으로)</span><span data-l="en">Analysis of Power Demand and Greenhouse Gas Reduction from Eco-Friendly Transition of Container Terminal Cargo Handling Equipment: A Case Study of Incheon Port</span><small><span data-l="ko">인천물류연구회 (인천대학교 수행)</span><span data-l="en">Incheon Logistics Research Society (executed at Incheon National University)</span></small></span>
+              <span class="cc"><span data-l="ko">한국</span><span data-l="en">Korea</span></span>
+            </summary>
+            <div class="body">
+              <ul data-l="ko"><li>항만 하역장비의 전력 소비 실측 데이터 수집</li><li>친환경 항만 전환 전략을 위한 온실가스 감축 효과 분석 지원</li></ul>
+              <ul data-l="en"><li>Collected empirical data on port equipment power consumption</li><li>Assisted in analyzing GHG reduction effects to support green port transition strategies</li></ul>
+              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">연구보조원</span><span data-l="en">Research Assistant</span></dd></dl>
+            </div>
+          </details></li>
+          <li><details open>
+            <summary>
+              <span class="yr">2025.03–07</span>
+              <span class="pt"><span data-l="ko">포항시 북극해운정보센터 구축 및 운영방안 연구</span><span data-l="en">Pohang Arctic Shipping Information Center: A Study on Establishment and Operational Strategies</span><small><span data-l="ko">포항시</span><span data-l="en">Pohang City Government</span></small></span>
+              <span class="cc"><span data-l="ko">한국</span><span data-l="en">Korea</span></span>
+            </summary>
+            <div class="body">
+              <ul data-l="ko"><li>북극 물류 관련 문헌 검토 및 벤치마킹 분석</li><li>정보센터 운영 체계 수립 지원</li></ul>
+              <ul data-l="en"><li>Conducted literature reviews and benchmarking analyses on Arctic logistics</li><li>Assisted in developing operational frameworks for the information center</li></ul>
+              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">연구보조원</span><span data-l="en">Research Assistant</span></dd></dl>
+            </div>
+          </details></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="awards">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">수상</span><span data-l="en">Awards</span><small><span data-l="ko">수상 18건</span><span data-l="en">18 awards and honors</span></small></h2></div>
+      <div class="content">
+        <ul class="talks awards" id="award-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="methods">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">분석 방법</span><span data-l="en">Methods</span><small><span data-l="ko">분석 도구</span><span data-l="en">Analytical toolkit</span></small></h2></div>
+      <div class="content">
+        <div class="methods">
+          <div><h3><span data-l="ko">위험 평가·구조 모형</span><span data-l="en">Risk assessment and structural modelling</span></h3><ul>
+            <li><span><span data-l="ko">해석적 구조 모형</span><span data-l="en">Interpretive structural modelling</span> (ISM), MICMAC</span></li>
+            <li><span><span data-l="ko">일관된 퍼지 선호관계</span><span data-l="en">Consistent fuzzy preference relations</span> (CFPR)</span></li>
+            <li><span>Fuzzy-IPA</span></li>
+          </ul></div>
+          <div><h3><span data-l="ko">효율성 평가</span><span data-l="en">Efficiency evaluation</span></h3><ul>
+            <li><span><span data-l="ko">자료포락분석</span><span data-l="en">Data envelopment analysis</span> (DEA), SBM-DEA</span></li>
+            <li><span>Undesirable DEA</span></li>
+            <li><span><span data-l="ko">맘퀴스트 생산성 지수</span><span data-l="en">Malmquist productivity index</span></span></li>
+          </ul></div>
+          <div><h3><span data-l="ko">네트워크·시장 구조 분석</span><span data-l="en">Network and market structure analysis</span></h3><ul>
+            <li><span><span data-l="ko">사회관계망·키워드 네트워크 분석</span><span data-l="en">Social and keyword network analysis</span> (SNA)</span></li>
+            <li><span><span data-l="ko">시장집중도 분석</span><span data-l="en">Market concentration</span> (CR, HHI, ABAGR)</span></li>
+            <li><span><span data-l="ko">포지셔닝 분석</span><span data-l="en">Positioning analysis</span></span></li>
+          </ul></div>
+          <div><h3><span data-l="ko">시스템 다이내믹스·시뮬레이션</span><span data-l="en">System dynamics and simulation</span></h3><ul>
+            <li><span><span data-l="ko">시스템 다이내믹스 모델링</span><span data-l="en">System dynamics modelling</span></span><span class="tool">Vensim, Powersim</span></li>
+            <li><span><span data-l="ko">운임지수(SCFI)·북극항로 통항량 예측</span><span data-l="en">SCFI freight index and NSR traffic forecasting</span></span></li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="credentials">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">장학·학회</span><span data-l="en">Grants</span><small><span data-l="ko">장학과 학회 활동</span><span data-l="en">Scholarships and memberships</span></small></h2></div>
+      <div class="content">
+        <div class="pairs">
+          <div>
+            <h3><span data-l="ko">장학</span><span data-l="en">Scholarships and grants</span></h3>
+            <dl class="kv">
+              <dt class="mono">2021–2025</dt><dd><strong><span data-l="ko">BK21 장학금</span><span data-l="en">Brain Korea 21 (BK21) Program Scholarship</span></strong><small><span data-l="ko">한국연구재단</span><span data-l="en">National Research Foundation of Korea</span></small></dd>
+              <dt class="mono">2020–2024</dt><dd><strong><span data-l="ko">해운항만물류 전문인력 양성사업 고급과정</span><span data-l="en">Advanced Program for Shipping, Port, and Logistics Professionals Grant</span></strong><small><span data-l="ko">해양수산부</span><span data-l="en">Ministry of Oceans and Fisheries</span></small></dd>
+            </dl>
+          </div>
+          <div>
+            <h3><span data-l="ko">학회 회원</span><span data-l="en">Memberships</span></h3>
+            <dl class="kv">
+              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국해운물류학회</span><span data-l="en">Korean Association of Shipping and Logistics</span></dd>
+              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국시베리아학회</span><span data-l="en">Korean Association of Siberian Studies</span></dd>
+              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국로지스틱스학회</span><span data-l="en">Korea Logistics Society</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">연락처</span><span data-l="en">Contact</span><small><span data-l="ko">이메일과 연구자 프로필</span><span data-l="en">Email and researcher profiles</span></small></h2></div>
+      <div class="content">
+        <div class="contact-list">
+          <div class="contact-row"><span class="k"><span data-l="ko">업무 이메일</span><span data-l="en">Work email</span></span><span class="v" id="mail-1">youngseochoi@kasakasa.kr</span><button class="copy" type="button" data-target="mail-1"></button></div>
+          <div class="contact-row"><span class="k"><span data-l="ko">개인 이메일</span><span data-l="en">Personal email</span></span><span class="v" id="mail-2">choiyoungseo95@gmail.com</span><button class="copy" type="button" data-target="mail-2"></button></div>
+        </div>
+        <div class="contact-list">
+          <div class="contact-row"><span class="k">ORCID</span><a class="v" href="https://orcid.org/0009-0001-7292-2894" target="_blank" rel="noopener">0009-0001-7292-2894<span class="d"><span data-l="ko">연구자 식별번호 · 전체 연구 실적</span><span data-l="en">Researcher ID and full record of outputs</span></span></a><a class="go" href="https://orcid.org/0009-0001-7292-2894" target="_blank" rel="noopener"><span data-l="ko">열기 ↗</span><span data-l="en">Open ↗</span></a></div>
+          <div class="contact-row"><span class="k">Google Scholar</span><a class="v" href="https://scholar.google.com/citations?user=dK9TJJ0AAAAJ" target="_blank" rel="noopener">dK9TJJ0AAAAJ<span class="d"><span data-l="ko">논문 목록 · 피인용 현황</span><span data-l="en">Publications and citations</span></span></a><a class="go" href="https://scholar.google.com/citations?user=dK9TJJ0AAAAJ" target="_blank" rel="noopener"><span data-l="ko">열기 ↗</span><span data-l="en">Open ↗</span></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Youngseo CHOI</span><span><span data-l="ko">2026년 10월 업데이트</span><span data-l="en">Updated October 2026</span></span></div>
+</footer>
+
+<script>
+const AJSL = "The Asian Journal of Shipping and Logistics";
+const JSL = "The Journal of Shipping and Logistics";
+const KJSS = "Korean Journal of Siberian Studies";
+// [year, authors, title, journal, volume/pages, written in Korean]
+const PUBS = [
+  [2025, "Choi, Y. S., Bernal, M. L., Krivoshapkina, M., & Yeo, G. T.", "Analyzing risk factors in ship-to-ship liquefied natural gas bunkering operations", AJSL, "41(1), 52–60", 0],
+  [2025, "Choi, Y. S., Krivoshapkina, M., Bernal, M. L., Abdykalykova, D., & Yeo, G. T.", "An Analysis of Transportation Research Trends in the Republic of Sakha", KJSS, "29(3), 33–66", 0],
+  [2025, "Choi, Y. S., Isakova, B., Krivoshapkina, M., Bernal, M. L., & Yeo, G. T.", "Evaluation of Airport Service Quality of Yakutsk Airport: Focusing on Passengers' Expectations", "Korea Logistics Review", "35(4), 101–111", 0],
+  [2025, "Choi, Y. S., Okhlopkova, S., Bernal, M. L., & Yeo, G. T.", "A Longitudinal Analysis of the Deconcentration of Logistics Companies in Russia", KJSS, "29(1), 1–40", 0],
+  [2025, "Bernal, M. L., Choi, Y. S., Krivoshapkina, M., & Yeo, G. T.", "Analysis of the competitive structure of the grain terminal in the West Coast region of South Korea", AJSL, "", 0],
+  [2025, "Choi, T. J., Choi, Y. S., & Yeo, G. T.", "Analysis of the Present Situation of Studies on the use of Methanol in the Shipping Industry using the SNA Method", JSL, "41(1), 1–23", 1],
+  [2024, "Choi, Y. S., Bernal, M. L., Tsymzhitov, S., & Yeo, G. T.", "Assessing airport efficiency in the Sakha Republic: A DEA-SBM analysis", AJSL, "40(2), 103–108", 0],
+  [2024, "Choi, Y. S., & Yeo, G. T.", "A Study on ESG Research Trend Analysis Using Keyword Network Analysis", JSL, "40(2), 255–277", 1],
+  [2024, "Jeong, S. H., Choi, Y. S., Bernal, M. L., & Yeo, G. T.", "Analysis of obstacles to lowering demurrage at grain terminals in South Korea", AJSL, "40(1), 30–35", 0],
+  [2024, "Bernal, M. L., Choi, Y. S., Lee, H. C., Kim, Y. N., & Yeo, G. T.", "An analysis of research trends of the Asian Journal of Shipping and Logistics", AJSL, "40(3), 139–146", 0],
+  [2024, "Krivoshapkina, M., Choi, Y. S., Bernal, M. L., & Yeo, G. T.", "Vitalizing logistics strategies for Tiksi Port using the interpretive structural modelling method", AJSL, "", 0],
+  [2024, "Gong, J. M., Lee, H. C., Choi, Y. S., & Yeo, G. T.", "A Study on Warehouse Provider Selection Factors for Domestic Petrochemical Companies Using CFPR: Focusing on Solid Products", JSL, "40(3), 353–371", 1],
+  [2024, "Jeong, S. H., Lee, H. C., Choi, Y. S., Bernal, M. L., & Yeo, G. T.", "A Study on the Analysis of the Efficiency of Domestic Grain Terminals", JSL, "40(1), 1–20", 1],
+  [2023, "Choi, Y. S., & Yeo, G. T.", "An analysis of research trends of inland waterway utilizing social network analysis", AJSL, "39(2), 52–59", 0],
+  [2023, "Kim, Y. N., Krasilnikova, N., Choi, Y. S., & Yeo, G. T.", "Structural analysis of factors for revitalizing Lena River logistics using ISM method", AJSL, "39(2), 46–51", 0],
+  [2023, "Gong, J. M., Kim, Y. N., Choi, Y. S., & Yeo, G. T.", "An Analysis of the Positioning of Domestic Petrochemical Handling Ports", JSL, "39(1), 43–61", 1],
+  [2023, "Park, B. J., Kim, Y. N., Choi, Y. S., & Yeo, G. T.", "A Study on the Optimization of Shipping Routes between Logistics and Service Centers for Imported Auto Parts", JSL, "39(2), 281–304", 1],
+  [2023, "Son, M. G., Lee, H. C., Choi, Y. S., & Yeo, G. T.", "A Study on the Evaluation of Key Factors for Introducing ESG to Domestic Comprehensive Logistics Companies", JSL, "39(4), 653–668", 1],
+  [2023, "Kim, Y. R., Lee, H. C., Choi, Y. S., & Yeo, G. T.", "Study on the Efficiency Analysis of Warehouse Companies in Metropolitan Area", JSL, "39(3), 367–385", 1],
+  [2023, "Kang, I. K., Lee, H. C., Choi, Y. S., & Yeo, G. T.", "A Study on Policy Priority Analysis for Port Air Quality Improvement: Focusing on Ports in the Metropolitan Area", "Korea Logistics Review", "33(2), 1–9", 1],
+  [2023, "An, Y. S., Kim, Y. N., Choi, Y. S., & Yeo, G. T.", "A Study on Positioning Analysis of International Freight Forwarding Companies", JSL, "39(2), 305–326", 1],
+  [2023, "Tsymzhitov, S., Park, S. H., Lee, H. C., Choi, Y. S., & Yeo, G. T.", "Study on the Traffic Prediction of Vessels Passing through the Northern Sea Route (NSR)", KJSS, "27(1), 99–130", 0],
+  [2022, "Choi, Y. S., Park, Y. J., Jin, J., & Yeo, G. T.", "A Study on the Analysis of Drone Research Trend in Logistics Industry using SNA Analysis", JSL, "38(1), 205–228", 1],
+  [2022, "Liu, S., Park, S. H., Choi, Y. S., & Yeo, G. T.", "Efficiency evaluation of major container terminals in the top three cities of the Pearl River Delta using SBM-DEA and undesirable DEA", AJSL, "38(2), 99–106", 0],
+  [2022, "Bernal, M. L., Choi, Y. S., Park, S. H., & Yeo, G. T.", "Efficiency Analysis of Spanish Container Ports Using Undesirable Variables and the Malmquist Index", "Journal of Korean Navigation and Port Research", "46(2), 110–120", 0],
+  [2022, "Kang, Y. S., Kim, Y. N., Choi, Y. S., & Yeo, G. T.", "A Study on the Positioning Analysis of Container Terminal at Busan Port", JSL, "38(4), 689–708", 1],
+  [2022, "Kim, J. C., Kim, Y. N., Choi, Y. S., Kim, H. J., & Yeo, G. T.", "A Study on the Comparison of Efficiency of Car Ferry Routes between Korea-China and Korea-Japan before and after the COVID-19 Pandemic: With a Focus on Car Ferry Routes", JSL, "38(3), 543–564", 1],
+  [2022, "Yoon, K. S., Choi, Y. S., Park, S. H., & Yeo, G. T.", "A Study of Forecasting of US West Coast (USWC) Freight Index in SCFI Using System Dynamics", "Korean Journal of Logistics", "30(4), 67–78", 1],
+  [2022, "Zongo, D., Kim, Y. N., Choi, Y. S., & Yeo, G. T.", "An analysis of weighing key factors for improving Côte d'Ivoire's logistics system utilizing ISM and MICMAC", "Journal of the Korean Association of African Studies", "66, 65–90", 0],
+  [2021, "Joung, J. H., Park, S. H., Choi, Y. S., Lee, H. C., & Yeo, G. T.", "Research Trends in Automobile Logistics Using the Methods of CFPR and SNA", JSL, "37(2), 181–206", 1],
+  [2021, "Kim, J. C., Park, S. H., Choi, Y. S., & Yeo, G. T.", "Study on Trend Analysis of Maritime Transport Logistics after the Bankruptcy of Hanjin Shipping Using SNA", JSL, "37(2), 229–253", 1],
+  [2021, "Choi, S. B., Lee, H. C., Choi, Y. S., & Yeo, G. T.", "A Study on the Coal Resource Transport Routes Between Russia and South Korea", KJSS, "25(2), 33–57", 1],
+  [2021, "Lim, J. Y., Park, S. H., Choi, Y. S., Lee, H. C., & Yeo, G. T.", "A study on the research trends of Incheon Port through keyword network analysis", JSL, "37(1), 1–21", 1],
+  [2021, "Kim, Y. K., Park, S. H., Choi, Y. S., & Yeo, G. T.", "A Study of Determinants on Logistics Companies of Domestic Construction Equipment Companies Using CFPR", JSL, "37(3), 551–578", 1]
+];
+const KASL_S = "KASL Spring Conference", KASL_F = "KASL Fall Conference";
+// [year, title, venue, lead presenter]
+const TALKS = [
+  [2025, "An Analysis of Transportation Research Trends in the Republic of Sakha", "ICASL 2025", 1],
+  [2025, "Evaluation of Airport Service Quality of Yakutsk Airport: Focusing on Passengers' Expectations", "ICASL 2025", 0],
+  [2024, "Performance Report on the Advanced Shipping and Logistics Professional Training Program", "2024 Performance Presentation, 4th Advanced Program for Shipping, Port, and Logistics Professionals", 1],
+  [2024, "Analyzing risk factors in ship-to-ship liquefied natural gas bunkering operations", "ICASL 2024", 1],
+  [2024, "A Longitudinal Analysis of the Deconcentration of Logistics Companies in Russia", "ICASL 2024", 0],
+  [2024, "A Study on ESG Research Trend Analysis Using Keyword Network Analysis", KASL_S, 1],
+  [2024, "Assessing airport efficiency in the Sakha Republic: A DEA-SBM analysis", KASL_S, 0],
+  [2024, "Analysis of the Present Situation of Studies on the use of Methanol in the Shipping Industry using the SNA Method", KASL_S, 0],
+  [2024, "A Study on Warehouse Provider Selection Factors for Domestic Petrochemical Companies Using CFPR: Focusing on Solid Products", KASL_S, 0],
+  [2023, "Performance Report on the Advanced Shipping and Logistics Professional Training Program", "2023 Performance Presentation, 4th Advanced Program for Shipping, Port, and Logistics Professionals", 1],
+  [2023, "Analysis of obstacles to lowering demurrage at grain terminals in South Korea", "Australian Maritime Logistics Research Network (AMLRN) 2023 Symposium", 0],
+  [2023, "A Study on the Positioning Analysis of International Freight Forwarders", "KASPS Conference", 1],
+  [2023, "A Study on Policy Priority Analysis for Port Air Quality Improvement", KASL_F, 0],
+  [2023, "A Study on Positioning Analysis of Domestic Petrochemical Product Handling Ports", KASL_F, 0],
+  [2023, "Vitalizing logistics strategies for Tiksi port using the ISM method", "ICASL 2023", 0],
+  [2023, "A Study on the Efficiency Analysis of Warehouse Companies in the Seoul Metropolitan Area", KASL_S, 1],
+  [2023, "A Study on the Evaluation of Key Factors for the Introduction of ESG in Korea's Comprehensive Logistics Companies", KASL_S, 0],
+  [2022, "A Study on the Research Trends of Inland Waterways Using Social Network Analysis", "2022 KASPS Joint Conference", 1],
+  [2022, "Study on Structural Analysis of Logistics Activation Factors in the Lena River using the ISM Methodology", "ICASL 2022", 0],
+  [2022, "An analysis of weighing key factors for improving Côte d'Ivoire's logistics system utilizing ISM and MICMAC", "ICASL 2022", 0],
+  [2022, "A Study on the Comparison of the Efficiency of Car Ferry Routes between Korea-Japan and Korea-China", KASL_S, 1],
+  [2022, "A Study on the Positioning Analysis of Busan Port Container Terminals", KASL_S, 0],
+  [2021, "Efficiency evaluation of major container terminals in the top three cities of the Pearl River Delta using SBM-DEA and undesirable DEA", "ICASL 2021", 0],
+  [2021, "A Study on the Index Prediction of USWC Route of SCFI using System Dynamics", KASL_F, 1],
+  [2021, "Trend Analysis of Drone Research in the Logistics Industry using SNA", "2021 Spring Joint Conference of KODMA & KLA", 1],
+  [2020, "A Study on the Selection Factors of Logistics Companies for Domestic Construction Machinery Companies Using CFPR", "KASPS Joint Conference", 1]
+];
+const ICASL = { ko: "ICASL 국제학술대회", en: "International Conference of Asian Shipping and Logistics (ICASL)" };
+const TRAIN = { ko: "제4차 해운항만물류 전문인력 양성사업 성과발표회", en: "4th Shipping, Port and Logistics Professional Training Project Performance Presentation" };
+const KASL_SC = { ko: "한국해운물류학회 춘계학술대회", en: "Korean Association of Shipping and Logistics (KASL) Spring Conference" };
+const KASPS = { ko: "한국해운항만학술단체협의회", en: "Korean Association of Shipping and Port Societies (KASPS)" };
+const MOF = { ko: "해양수산부", en: "Ministry of Oceans and Fisheries, Republic of Korea" };
+// [date, award {ko,en}, organizer {ko,en}]
+const AWARDS = [
+  ["2025.06", { ko: "Runner-up Best Paper Award", en: "Runner-up Best Paper Award" }, ICASL],
+  ["2025.06", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
+  ["2024.11", { ko: "우수상", en: "Excellence Award" }, TRAIN],
+  ["2024.06", { ko: "Runner-up Best Paper Award", en: "Runner-up Best Paper Award" }, ICASL],
+  ["2024.05", { ko: "우수상", en: "Excellence Award" }, KASL_SC],
+  ["2024.05", { ko: "장려상", en: "Encouragement Award" }, KASL_SC],
+  ["2024.05", { ko: "장려상", en: "Encouragement Award" }, KASL_SC],
+  ["2024.02", { ko: "해양수산부 장관상", en: "Minister of Oceans and Fisheries Award" }, MOF],
+  ["2023.12", { ko: "장려상", en: "Encouragement Award" }, { ko: "물류공급망 운영 시뮬레이션 경진대회", en: "Logistics Supply Chain Operation Simulation Contest" }],
+  ["2023.12", { ko: "장려상", en: "Encouragement Award" }, TRAIN],
+  ["2023.06", { ko: "최우수상", en: "Grand Prize (Best Paper Award)" }, KASPS],
+  ["2023.06", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
+  ["2022.06", { ko: "협회장상", en: "Association President's Award" }, KASPS],
+  ["2022.06", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
+  ["2022.02", { ko: "해양수산부 장관상", en: "Minister of Oceans and Fisheries Award" }, MOF],
+  ["2021.12", { ko: "최우수상", en: "Grand Prize (Best Paper Award)" }, { ko: "한국해운물류학회 추계학술대회", en: "Korean Association of Shipping and Logistics (KASL) Fall Conference" }],
+  ["2021.08", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
+  ["2020.12", { ko: "신진학자상", en: "Emerging Scholar Award" }, KASPS]
+];
+
+const UI = {
+  ko: { copy: "복사", copied: "복사됨", selected: "선택됨" },
+  en: { copy: "Copy", copied: "Copied", selected: "Selected" }
+};
+const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+const both = (ko, en) => `<span data-l="ko">${esc(ko)}</span><span data-l="en">${esc(en)}</span>`;
+let lang = document.documentElement.getAttribute("data-lang") === "en" ? "en" : "ko";
+
+function renderStatic() {
+  const years = [...new Set(PUBS.map(p => p[0]))];
+  document.getElementById("pub-list").innerHTML = years.map(y => `
+    <div class="pub-year"><div class="y">${y}</div><ul class="pubs">${
+      PUBS.filter(p => p[0] === y).map(([, au, t, j, v, ko]) => `
+        <li><span class="t">${esc(t)}</span>${ko ? `<span class="ltag">${both("국문", "In Korean")}</span>` : ""}<span class="meta">${esc(au).replace("Choi, Y. S.", '<span class="me">Choi, Y. S.</span>')} · <em>${esc(j)}</em>${v ? ", " + esc(v) : ""}</span></li>`).join("")
+    }</ul></div>`).join("");
+  document.getElementById("talk-list").innerHTML = TALKS.map(([y, t, v, lead]) => `
+    <li><span class="y">${y}</span><span>${esc(t)}<span class="venue">${esc(v)}</span></span><span class="fmt${lead ? " lead" : ""}">${lead ? both("대표발표", "Lead presenter") : both("공동", "Co-author")}</span></li>`).join("");
+  document.getElementById("award-list").innerHTML = AWARDS.map(([d, a, o]) => `
+    <li><span class="y">${d}</span><span>${both(a.ko, a.en)}<span class="venue">${both(o.ko, o.en)}</span></span></li>`).join("");
+}
+
+function applyLang(next, remember) {
+  lang = next;
+  document.documentElement.setAttribute("data-lang", lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.set === lang)));
+  document.querySelectorAll(".copy").forEach(b => { b.textContent = UI[lang].copy; });
+  if (remember) { try { localStorage.setItem("ycs-lang", lang); } catch (e) {} }
+}
+
+document.querySelector(".lang").addEventListener("click", e => {
+  const b = e.target.closest("button[data-set]");
+  if (b && b.dataset.set !== lang) applyLang(b.dataset.set, true);
+});
+
+document.querySelectorAll(".copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const el = document.getElementById(btn.dataset.target);
+    const reset = () => setTimeout(() => { btn.textContent = UI[lang].copy; }, 1600);
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = UI[lang].selected; reset();
+    };
+    try {
+      navigator.clipboard.writeText(el.textContent.trim()).then(() => { btn.textContent = UI[lang].copied; reset(); }, fallback);
+    } catch (err) { fallback(); }
+  });
+});
+
+renderStatic();
+applyLang(lang, false);
+</script>
+</body>
+</html>
