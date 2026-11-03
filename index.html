@@ -760,30 +760,30 @@ const TRAIN = { ko: "제4차 해운항만물류 전문인력 양성사업 성과
 const KASL_SC = { ko: "한국해운물류학회 춘계학술대회", en: "Korean Association of Shipping and Logistics (KASL) Spring Conference" };
 const KASPS = { ko: "한국해운항만학술단체협의회", en: "Korean Association of Shipping and Port Societies (KASPS)" };
 const MOF = { ko: "해양수산부", en: "Ministry of Oceans and Fisheries, Republic of Korea" };
-// [date, award {ko,en}, organizer {ko,en}]
+// [date, award {ko,en}, organizer {ko,en}, shown before "show all"]
 const AWARDS = [
-  ["2025.06", { ko: "Runner-up Best Paper Award", en: "Runner-up Best Paper Award" }, ICASL],
+  ["2025.06", { ko: "Runner-up Best Paper Award", en: "Runner-up Best Paper Award" }, ICASL, 1],
   ["2025.06", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
   ["2024.11", { ko: "우수상", en: "Excellence Award" }, TRAIN],
   ["2024.06", { ko: "Runner-up Best Paper Award", en: "Runner-up Best Paper Award" }, ICASL],
   ["2024.05", { ko: "우수상", en: "Excellence Award" }, KASL_SC],
   ["2024.05", { ko: "장려상", en: "Encouragement Award" }, KASL_SC],
   ["2024.05", { ko: "장려상", en: "Encouragement Award" }, KASL_SC],
-  ["2024.02", { ko: "해양수산부 장관상", en: "Minister of Oceans and Fisheries Award" }, MOF],
+  ["2024.02", { ko: "해양수산부 장관상", en: "Minister of Oceans and Fisheries Award" }, MOF, 1],
   ["2023.12", { ko: "장려상", en: "Encouragement Award" }, { ko: "물류공급망 운영 시뮬레이션 경진대회", en: "Logistics Supply Chain Operation Simulation Contest" }],
   ["2023.12", { ko: "장려상", en: "Encouragement Award" }, TRAIN],
-  ["2023.06", { ko: "최우수상", en: "Grand Prize (Best Paper Award)" }, KASPS],
+  ["2023.06", { ko: "최우수상", en: "Grand Prize (Best Paper Award)" }, KASPS, 1],
   ["2023.06", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
   ["2022.06", { ko: "협회장상", en: "Association President's Award" }, KASPS],
   ["2022.06", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
-  ["2022.02", { ko: "해양수산부 장관상", en: "Minister of Oceans and Fisheries Award" }, MOF],
+  ["2022.02", { ko: "해양수산부 장관상", en: "Minister of Oceans and Fisheries Award" }, MOF, 1],
   ["2021.12", { ko: "최우수상", en: "Grand Prize (Best Paper Award)" }, { ko: "한국해운물류학회 추계학술대회", en: "Korean Association of Shipping and Logistics (KASL) Fall Conference" }],
   ["2021.08", { ko: "Commended Paper Award", en: "Commended Paper Award" }, ICASL],
   ["2020.12", { ko: "신진학자상", en: "Emerging Scholar Award" }, KASPS]
 ];
 
-// Awards shown before "show all": ministerial awards, grand prizes and best paper awards
-const MAJOR = /Minister|Grand Prize|Best Paper/;
+// Items shown before "show all": the 5 latest academic lead presentations
+const SHOWN = 5;
 const UI = {
   ko: { copy: "복사", copied: "복사됨", selected: "선택됨", less: "접기",
         "exp-list": "전체 경력 보기", "edu-list": "장학 · 학회 활동 보기",
@@ -804,10 +804,11 @@ function renderStatic() {
       PUBS.filter(p => p[0] === y).map(([, au, t, j, v, ko]) => `
         <li${first(au) ? "" : ' class="extra"'}><span class="t">${esc(t)}</span>${ko ? `<span class="ltag">${both("국문", "In Korean")}</span>` : ""}<span class="meta">${esc(au).replace("Choi, Y. S.", '<span class="me">Choi, Y. S.</span>')} · <em>${esc(j)}</em>${v ? ", " + esc(v) : ""}</span></li>`).join("")
     }</ul></div>`).join("");
-  document.getElementById("talk-list").innerHTML = TALKS.map(([y, t, v, lead]) => `
-    <li${lead ? "" : ' class="extra"'}><span class="y">${y}</span><span>${esc(t)}<span class="venue">${esc(v)}</span></span><span class="fmt${lead ? " lead" : ""}">${lead ? both("대표발표", "Lead presenter") : both("공동", "Co-author")}</span></li>`).join("");
-  document.getElementById("award-list").innerHTML = AWARDS.map(([d, a, o]) => `
-    <li${MAJOR.test(a.en) ? "" : ' class="extra"'}><span class="y">${d}</span><span>${both(a.ko, a.en)}<span class="venue">${both(o.ko, o.en)}</span></span></li>`).join("");
+  const featuredTalks = TALKS.filter(([, t, , lead]) => lead && !t.startsWith("Performance Report")).slice(0, SHOWN);
+  document.getElementById("talk-list").innerHTML = TALKS.map((talk) => { const [y, t, v, lead] = talk; return `
+    <li${featuredTalks.includes(talk) ? "" : ' class="extra"'}><span class="y">${y}</span><span>${esc(t)}<span class="venue">${esc(v)}</span></span><span class="fmt${lead ? " lead" : ""}">${lead ? both("대표발표", "Lead presenter") : both("공동", "Co-author")}</span></li>`; }).join("");
+  document.getElementById("award-list").innerHTML = AWARDS.map(([d, a, o, featured]) => `
+    <li${featured ? "" : ' class="extra"'}><span class="y">${d}</span><span>${both(a.ko, a.en)}<span class="venue">${both(o.ko, o.en)}</span></span></li>`).join("");
 }
 
 function applyLang(next, remember) {
