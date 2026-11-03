@@ -344,11 +344,12 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
     <nav class="nav" aria-label="Sections">
       <a href="#research"><span data-l="ko">연구</span><span data-l="en">Research</span></a>
       <a href="#experience"><span data-l="ko">경력</span><span data-l="en">Experience</span></a>
-      <a href="#education"><span data-l="ko">학력</span><span data-l="en">Education</span></a>
+      <a href="#projects"><span data-l="ko">연구과제</span><span data-l="en">Projects</span></a>
       <a href="#publications"><span data-l="ko">논문</span><span data-l="en">Publications</span></a>
       <a href="#talks"><span data-l="ko">발표</span><span data-l="en">Presentations</span></a>
-      <a href="#projects"><span data-l="ko">연구과제</span><span data-l="en">Projects</span></a>
       <a href="#awards"><span data-l="ko">수상</span><span data-l="en">Awards</span></a>
+      <a href="#methods"><span data-l="ko">연구방법론</span><span data-l="en">Methodology</span></a>
+      <a href="#education"><span data-l="ko">학력</span><span data-l="en">Education</span></a>
       <a href="#contact"><span data-l="ko">연락처</span><span data-l="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
@@ -431,7 +432,7 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
     <div class="wrap">
       <div class="label"><h2><span data-l="ko">경력</span><span data-l="en">Experience</span><small><span data-l="ko">재직 및 연구 이력</span><span data-l="en">Positions held</span></small></h2></div>
       <div class="content">
-        <div class="entries">
+        <div class="entries folded" id="exp-list">
           <article class="entry">
             <div class="when"><span class="current"><span data-l="ko">2026.07 – 현재</span><span data-l="en">Jul 2026 – now</span></span><br><span data-l="ko">서울</span><span data-l="en">Seoul</span></div>
             <div>
@@ -447,6 +448,13 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
             </div>
           </article>
           <article class="entry">
+            <div class="when"><span data-l="ko">2020 – 2025.08</span><span data-l="en">2020 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
+            <div>
+              <h3><span data-l="ko">연구원</span><span data-l="en">Researcher</span></h3>
+              <p class="org"><span data-l="ko">인천대학교 동북아물류경영연구소</span><span data-l="en">Northeast Asia Logistics and Management Research Institute, Incheon National University</span></p>
+            </div>
+          </article>
+          <article class="entry extra">
             <div class="when"><span data-l="ko">2021 – 2025.08</span><span data-l="en">2021 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
             <div>
               <h3><span data-l="ko">북방사업 조교</span><span data-l="en">Assistant, Northern Logistics Program</span></h3>
@@ -459,14 +467,14 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
               </ul>
             </div>
           </article>
-          <article class="entry">
+          <article class="entry extra">
             <div class="when"><span data-l="ko">2021 – 2025.08</span><span data-l="en">2021 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
             <div>
               <h3><span data-l="ko">시스템 다이내믹스 수업 조교</span><span data-l="en">Teaching Assistant, System Dynamics</span></h3>
               <p class="org"><span data-l="ko">인천대학교 동북아물류대학원</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p>
             </div>
           </article>
-          <article class="entry">
+          <article class="entry extra">
             <div class="when"><span data-l="ko">2020 – 2025.08</span><span data-l="en">2020 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
             <div>
               <h3><span data-l="ko">교육 조교</span><span data-l="en">Educational Assistant</span></h3>
@@ -479,20 +487,119 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
               </ul>
             </div>
           </article>
-          <article class="entry">
-            <div class="when"><span data-l="ko">2020 – 2025.08</span><span data-l="en">2020 – Aug 2025</span><br><span data-l="ko">인천</span><span data-l="en">Incheon</span></div>
-            <div>
-              <h3><span data-l="ko">연구원</span><span data-l="en">Researcher</span></h3>
-              <p class="org"><span data-l="ko">인천대학교 동북아물류경영연구소</span><span data-l="en">Northeast Asia Logistics and Management Research Institute, Incheon National University</span></p>
-            </div>
-          </article>
-          <article class="entry">
+          <article class="entry extra">
             <div class="when"><span data-l="ko">2020 – 2025.08</span><span data-l="en">2020 – Aug 2025</span></div>
             <div>
               <h3><span data-l="ko">학술대회 스태프</span><span data-l="en">Conference Staff</span></h3>
               <p class="org">ICASL (International Conference of Asian Shipping and Logistics)</p>
             </div>
           </article>
+        </div>
+        <button class="more-btn" type="button" data-fold="exp-list"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">연구과제</span><span data-l="en">Projects</span><small><span data-l="ko">참여 연구과제</span><span data-l="en">Research projects</span></small></h2></div>
+      <div class="content">
+        <ul class="projects">
+          <li><details open>
+            <summary>
+              <span class="yr">2026.04–</span>
+              <span class="pt"><span data-l="ko">북극항로 관련 국가 R&amp;D 과제 참여</span><span data-l="en">National R&amp;D Project on Arctic Shipping Routes</span><small><span data-l="ko">해양수산부</span><span data-l="en">Ministry of Oceans and Fisheries</span></small></span>
+              <span class="cc"><span class="status"><span data-l="ko">진행 중</span><span data-l="en">Ongoing</span></span></span>
+            </summary>
+            <div class="body">
+              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">참여연구원</span><span data-l="en">Researcher</span></dd><dt><span data-l="ko">기간</span><span data-l="en">Period</span></dt><dd><span data-l="ko">2026.04 – 현재</span><span data-l="en">Apr 2026 – present</span></dd></dl>
+            </div>
+          </details></li>
+          <li><details open>
+            <summary>
+              <span class="yr">2025.06–12</span>
+              <span class="pt"><span data-l="ko">컨테이너 항만의 하역장비 친환경 전환에 따른 필요전력량 및 온실가스 감축량 분석 (인천항을 중심으로)</span><span data-l="en">Analysis of Power Demand and Greenhouse Gas Reduction from Eco-Friendly Transition of Container Terminal Cargo Handling Equipment: A Case Study of Incheon Port</span><small><span data-l="ko">인천물류연구회 (인천대학교 수행)</span><span data-l="en">Incheon Logistics Research Society (executed at Incheon National University)</span></small></span>
+              <span class="cc"><span data-l="ko">한국</span><span data-l="en">Korea</span></span>
+            </summary>
+            <div class="body">
+              <ul data-l="ko"><li>항만 하역장비의 전력 소비 실측 데이터 수집</li><li>친환경 항만 전환 전략을 위한 온실가스 감축 효과 분석 지원</li></ul>
+              <ul data-l="en"><li>Collected empirical data on port equipment power consumption</li><li>Assisted in analyzing GHG reduction effects to support green port transition strategies</li></ul>
+              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">연구보조원</span><span data-l="en">Research Assistant</span></dd></dl>
+            </div>
+          </details></li>
+          <li><details open>
+            <summary>
+              <span class="yr">2025.03–07</span>
+              <span class="pt"><span data-l="ko">포항시 북극해운정보센터 구축 및 운영방안 연구</span><span data-l="en">Pohang Arctic Shipping Information Center: A Study on Establishment and Operational Strategies</span><small><span data-l="ko">포항시</span><span data-l="en">Pohang City Government</span></small></span>
+              <span class="cc"><span data-l="ko">한국</span><span data-l="en">Korea</span></span>
+            </summary>
+            <div class="body">
+              <ul data-l="ko"><li>북극 물류 관련 문헌 검토 및 벤치마킹 분석</li><li>정보센터 운영 체계 수립 지원</li></ul>
+              <ul data-l="en"><li>Conducted literature reviews and benchmarking analyses on Arctic logistics</li><li>Assisted in developing operational frameworks for the information center</li></ul>
+              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">연구보조원</span><span data-l="en">Research Assistant</span></dd></dl>
+            </div>
+          </details></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="publications">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">논문</span><span data-l="en">Publications</span><small><span data-l="ko">학술지 논문 34편 · 주저자 8편</span><span data-l="en">34 journal articles · 8 as first author</span></small></h2></div>
+      <div class="content">
+        <p class="note" data-l="ko">처음에는 주저자 논문만 보여줍니다. 논문 제목과 학술지명은 영문 표기를 따르며, ‘국문’ 표시는 한국어로 쓰인 논문입니다.</p>
+        <p class="note" data-l="en">First-author articles are shown first.</p>
+        <div class="stack folded" id="pub-list"></div>
+        <button class="more-btn" type="button" data-fold="pub-list"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="talks">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">학회 발표</span><span data-l="en">Conference Presentations</span><small><span data-l="ko">26건 · 대표발표 12건</span><span data-l="en">26 presentations · 12 as lead presenter</span></small></h2></div>
+      <div class="content">
+        <ul class="talks folded" id="talk-list"></ul>
+        <button class="more-btn" type="button" data-fold="talk-list"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="awards">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">수상</span><span data-l="en">Awards</span><small><span data-l="ko">수상 18건</span><span data-l="en">18 awards and honors</span></small></h2></div>
+      <div class="content">
+        <ul class="talks awards folded" id="award-list"></ul>
+        <button class="more-btn" type="button" data-fold="award-list"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="methods">
+    <div class="wrap">
+      <div class="label"><h2><span data-l="ko">연구방법론</span><span data-l="en">Methodology</span><small><span data-l="ko">정량·모형 분석 방법</span><span data-l="en">Quantitative and modelling methods</span></small></h2></div>
+      <div class="content">
+        <div class="methods">
+          <div><h3><span data-l="ko">위험 평가·구조 모형</span><span data-l="en">Risk assessment and structural modelling</span></h3><ul>
+            <li><span><span data-l="ko">해석적 구조 모형</span><span data-l="en">Interpretive structural modelling</span> (ISM), MICMAC</span></li>
+            <li><span><span data-l="ko">일관된 퍼지 선호관계</span><span data-l="en">Consistent fuzzy preference relations</span> (CFPR)</span></li>
+            <li><span>Fuzzy-IPA</span></li>
+          </ul></div>
+          <div><h3><span data-l="ko">효율성 평가</span><span data-l="en">Efficiency evaluation</span></h3><ul>
+            <li><span><span data-l="ko">자료포락분석</span><span data-l="en">Data envelopment analysis</span> (DEA), SBM-DEA</span></li>
+            <li><span>Undesirable DEA</span></li>
+            <li><span><span data-l="ko">맘퀴스트 생산성 지수</span><span data-l="en">Malmquist productivity index</span></span></li>
+          </ul></div>
+          <div><h3><span data-l="ko">네트워크·시장 구조 분석</span><span data-l="en">Network and market structure analysis</span></h3><ul>
+            <li><span><span data-l="ko">사회관계망·키워드 네트워크 분석</span><span data-l="en">Social and keyword network analysis</span> (SNA)</span></li>
+            <li><span><span data-l="ko">시장집중도 분석</span><span data-l="en">Market concentration</span> (CR, HHI, ABAGR)</span></li>
+            <li><span><span data-l="ko">포지셔닝 분석</span><span data-l="en">Positioning analysis</span></span></li>
+          </ul></div>
+          <div><h3><span data-l="ko">시스템 다이내믹스·시뮬레이션</span><span data-l="en">System dynamics and simulation</span></h3><ul>
+            <li><span><span data-l="ko">시스템 다이내믹스 모델링</span><span data-l="en">System dynamics modelling</span></span><span class="tool">Vensim, Powersim</span></li>
+            <li><span><span data-l="ko">운임지수(SCFI)·북극항로 통항량 예측</span><span data-l="en">SCFI freight index and NSR traffic forecasting</span></span></li>
+          </ul></div>
         </div>
       </div>
     </div>
@@ -534,7 +641,7 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
             <div class="facts"><span><span data-l="ko">지도교수 여기태</span><span data-l="en">Supervisor: Prof. Gi-tae Yeo</span></span></div>
           </article>
         </div>
-        <div class="pairs">
+        <div id="edu-list" class="folded"><div class="pairs extra">
           <div>
             <h3><span data-l="ko">장학</span><span data-l="en">Scholarships and grants</span></h3>
             <dl class="kv">
@@ -550,116 +657,11 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
               <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국로지스틱스학회</span><span data-l="en">Korea Logistics Society</span></dd>
             </dl>
           </div>
-        </div>
+        </div></div>
+        <button class="more-btn" type="button" data-fold="edu-list"></button>
       </div>
     </div>
   </section>
-
-  <section class="block" id="publications">
-    <div class="wrap">
-      <div class="label"><h2><span data-l="ko">논문</span><span data-l="en">Publications</span><small><span data-l="ko">학술지 논문 34편 · 주저자 8편</span><span data-l="en">34 journal articles · 8 as first author</span></small></h2></div>
-      <div class="content">
-        <p class="note" data-l="ko">처음에는 주저자 논문만 보여줍니다. 논문 제목과 학술지명은 영문 표기를 따르며, ‘국문’ 표시는 한국어로 쓰인 논문입니다.</p>
-        <p class="note" data-l="en">First-author articles are shown first.</p>
-        <div class="stack folded" id="pub-list"></div>
-        <button class="more-btn" type="button" data-fold="pub-list"></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="talks">
-    <div class="wrap">
-      <div class="label"><h2><span data-l="ko">학회 발표</span><span data-l="en">Conference Presentations</span><small><span data-l="ko">26건 · 대표발표 12건</span><span data-l="en">26 presentations · 12 as lead presenter</span></small></h2></div>
-      <div class="content">
-        <ul class="talks folded" id="talk-list"></ul>
-        <button class="more-btn" type="button" data-fold="talk-list"></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="projects">
-    <div class="wrap">
-      <div class="label"><h2><span data-l="ko">연구과제</span><span data-l="en">Projects</span><small><span data-l="ko">참여 연구과제</span><span data-l="en">Research projects</span></small></h2></div>
-      <div class="content">
-        <ul class="projects">
-          <li><details open>
-            <summary>
-              <span class="yr">2026.04–</span>
-              <span class="pt"><span data-l="ko">북극新항로 개척을 위한 친환경 쇄빙컨테이너선 개발</span><span data-l="en">Development of an Eco-friendly Icebreaking Container Ship for New Arctic Sea Routes</span><small><span data-l="ko">해양수산부 국가연구개발사업</span><span data-l="en">National R&amp;D program, Ministry of Oceans and Fisheries</span></small></span>
-              <span class="cc"><span class="status"><span data-l="ko">진행 중</span><span data-l="en">Ongoing</span></span></span>
-            </summary>
-            <div class="body">
-              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">참여연구원</span><span data-l="en">Participating Researcher</span></dd><dt><span data-l="ko">기간</span><span data-l="en">Period</span></dt><dd><span data-l="ko">2026.04 – 현재</span><span data-l="en">Apr 2026 – present</span></dd></dl>
-            </div>
-          </details></li>
-          <li><details open>
-            <summary>
-              <span class="yr">2025.06–12</span>
-              <span class="pt"><span data-l="ko">컨테이너 항만의 하역장비 친환경 전환에 따른 필요전력량 및 온실가스 감축량 분석 (인천항을 중심으로)</span><span data-l="en">Analysis of Power Demand and Greenhouse Gas Reduction from Eco-Friendly Transition of Container Terminal Cargo Handling Equipment: A Case Study of Incheon Port</span><small><span data-l="ko">인천물류연구회 (인천대학교 수행)</span><span data-l="en">Incheon Logistics Research Society (executed at Incheon National University)</span></small></span>
-              <span class="cc"><span data-l="ko">한국</span><span data-l="en">Korea</span></span>
-            </summary>
-            <div class="body">
-              <ul data-l="ko"><li>항만 하역장비의 전력 소비 실측 데이터 수집</li><li>친환경 항만 전환 전략을 위한 온실가스 감축 효과 분석 지원</li></ul>
-              <ul data-l="en"><li>Collected empirical data on port equipment power consumption</li><li>Assisted in analyzing GHG reduction effects to support green port transition strategies</li></ul>
-              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">연구보조원</span><span data-l="en">Research Assistant</span></dd></dl>
-            </div>
-          </details></li>
-          <li><details open>
-            <summary>
-              <span class="yr">2025.03–07</span>
-              <span class="pt"><span data-l="ko">포항시 북극해운정보센터 구축 및 운영방안 연구</span><span data-l="en">Pohang Arctic Shipping Information Center: A Study on Establishment and Operational Strategies</span><small><span data-l="ko">포항시</span><span data-l="en">Pohang City Government</span></small></span>
-              <span class="cc"><span data-l="ko">한국</span><span data-l="en">Korea</span></span>
-            </summary>
-            <div class="body">
-              <ul data-l="ko"><li>북극 물류 관련 문헌 검토 및 벤치마킹 분석</li><li>정보센터 운영 체계 수립 지원</li></ul>
-              <ul data-l="en"><li>Conducted literature reviews and benchmarking analyses on Arctic logistics</li><li>Assisted in developing operational frameworks for the information center</li></ul>
-              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">연구보조원</span><span data-l="en">Research Assistant</span></dd></dl>
-            </div>
-          </details></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="awards">
-    <div class="wrap">
-      <div class="label"><h2><span data-l="ko">수상</span><span data-l="en">Awards</span><small><span data-l="ko">수상 18건</span><span data-l="en">18 awards and honors</span></small></h2></div>
-      <div class="content">
-        <ul class="talks awards folded" id="award-list"></ul>
-        <button class="more-btn" type="button" data-fold="award-list"></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="methods">
-    <div class="wrap">
-      <div class="label"><h2><span data-l="ko">분석 방법</span><span data-l="en">Research Methods</span><small><span data-l="ko">정량·모형 분석 방법</span><span data-l="en">Quantitative and modelling methods</span></small></h2></div>
-      <div class="content">
-        <div class="methods">
-          <div><h3><span data-l="ko">위험 평가·구조 모형</span><span data-l="en">Risk assessment and structural modelling</span></h3><ul>
-            <li><span><span data-l="ko">해석적 구조 모형</span><span data-l="en">Interpretive structural modelling</span> (ISM), MICMAC</span></li>
-            <li><span><span data-l="ko">일관된 퍼지 선호관계</span><span data-l="en">Consistent fuzzy preference relations</span> (CFPR)</span></li>
-            <li><span>Fuzzy-IPA</span></li>
-          </ul></div>
-          <div><h3><span data-l="ko">효율성 평가</span><span data-l="en">Efficiency evaluation</span></h3><ul>
-            <li><span><span data-l="ko">자료포락분석</span><span data-l="en">Data envelopment analysis</span> (DEA), SBM-DEA</span></li>
-            <li><span>Undesirable DEA</span></li>
-            <li><span><span data-l="ko">맘퀴스트 생산성 지수</span><span data-l="en">Malmquist productivity index</span></span></li>
-          </ul></div>
-          <div><h3><span data-l="ko">네트워크·시장 구조 분석</span><span data-l="en">Network and market structure analysis</span></h3><ul>
-            <li><span><span data-l="ko">사회관계망·키워드 네트워크 분석</span><span data-l="en">Social and keyword network analysis</span> (SNA)</span></li>
-            <li><span><span data-l="ko">시장집중도 분석</span><span data-l="en">Market concentration</span> (CR, HHI, ABAGR)</span></li>
-            <li><span><span data-l="ko">포지셔닝 분석</span><span data-l="en">Positioning analysis</span></span></li>
-          </ul></div>
-          <div><h3><span data-l="ko">시스템 다이내믹스·시뮬레이션</span><span data-l="en">System dynamics and simulation</span></h3><ul>
-            <li><span><span data-l="ko">시스템 다이내믹스 모델링</span><span data-l="en">System dynamics modelling</span></span><span class="tool">Vensim, Powersim</span></li>
-            <li><span><span data-l="ko">운임지수(SCFI)·북극항로 통항량 예측</span><span data-l="en">SCFI freight index and NSR traffic forecasting</span></span></li>
-          </ul></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <section class="block" id="contact">
     <div class="wrap">
@@ -780,11 +782,14 @@ const AWARDS = [
   ["2020.12", { ko: "신진학자상", en: "Emerging Scholar Award" }, KASPS]
 ];
 
-const SHOWN = 5;
+// Awards shown before "show all": ministerial awards, grand prizes and best paper awards
+const MAJOR = /Minister|Grand Prize|Best Paper/;
 const UI = {
   ko: { copy: "복사", copied: "복사됨", selected: "선택됨", less: "접기",
+        "exp-list": "전체 경력 보기", "edu-list": "장학 · 학회 활동 보기",
         "pub-list": `전체 ${PUBS.length}편 보기`, "talk-list": `전체 ${TALKS.length}건 보기`, "award-list": `전체 ${AWARDS.length}건 보기` },
   en: { copy: "Copy", copied: "Copied", selected: "Selected", less: "Show less",
+        "exp-list": "Show all positions", "edu-list": "Show scholarships and memberships",
         "pub-list": `Show all ${PUBS.length} articles`, "talk-list": `Show all ${TALKS.length} presentations`, "award-list": `Show all ${AWARDS.length} awards` }
 };
 const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
@@ -799,10 +804,10 @@ function renderStatic() {
       PUBS.filter(p => p[0] === y).map(([, au, t, j, v, ko]) => `
         <li${first(au) ? "" : ' class="extra"'}><span class="t">${esc(t)}</span>${ko ? `<span class="ltag">${both("국문", "In Korean")}</span>` : ""}<span class="meta">${esc(au).replace("Choi, Y. S.", '<span class="me">Choi, Y. S.</span>')} · <em>${esc(j)}</em>${v ? ", " + esc(v) : ""}</span></li>`).join("")
     }</ul></div>`).join("");
-  document.getElementById("talk-list").innerHTML = TALKS.map(([y, t, v, lead], i) => `
-    <li${i < SHOWN ? "" : ' class="extra"'}><span class="y">${y}</span><span>${esc(t)}<span class="venue">${esc(v)}</span></span><span class="fmt${lead ? " lead" : ""}">${lead ? both("대표발표", "Lead presenter") : both("공동", "Co-author")}</span></li>`).join("");
-  document.getElementById("award-list").innerHTML = AWARDS.map(([d, a, o], i) => `
-    <li${i < SHOWN ? "" : ' class="extra"'}><span class="y">${d}</span><span>${both(a.ko, a.en)}<span class="venue">${both(o.ko, o.en)}</span></span></li>`).join("");
+  document.getElementById("talk-list").innerHTML = TALKS.map(([y, t, v, lead]) => `
+    <li${lead ? "" : ' class="extra"'}><span class="y">${y}</span><span>${esc(t)}<span class="venue">${esc(v)}</span></span><span class="fmt${lead ? " lead" : ""}">${lead ? both("대표발표", "Lead presenter") : both("공동", "Co-author")}</span></li>`).join("");
+  document.getElementById("award-list").innerHTML = AWARDS.map(([d, a, o]) => `
+    <li${MAJOR.test(a.en) ? "" : ' class="extra"'}><span class="y">${d}</span><span>${both(a.ko, a.en)}<span class="venue">${both(o.ko, o.en)}</span></span></li>`).join("");
 }
 
 function applyLang(next, remember) {
