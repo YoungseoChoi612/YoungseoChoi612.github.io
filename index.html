@@ -332,8 +332,10 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
 .thesis .facts { display: flex; flex-wrap: wrap; gap: 4px 16px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-top: auto; }
 .thesis .note-pub { font-size: var(--step--1); color: var(--muted); }
 .thesis .note-pub em { color: var(--ink); font-style: italic; }
-.entry .gpa { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 .kv dd small { display: block; color: var(--muted); }
+.folded .extra { display: none; }
+.more-btn { align-self: flex-start; font: 500 var(--step--1) / 1 var(--font-body); color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 999px; padding: 9px 16px; cursor: pointer; }
+.more-btn:hover { background: var(--accent-soft); }
 </style>
 
 <header class="topbar">
@@ -342,9 +344,11 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
     <nav class="nav" aria-label="Sections">
       <a href="#research"><span data-l="ko">연구</span><span data-l="en">Research</span></a>
       <a href="#experience"><span data-l="ko">경력</span><span data-l="en">Experience</span></a>
+      <a href="#education"><span data-l="ko">학력</span><span data-l="en">Education</span></a>
       <a href="#publications"><span data-l="ko">논문</span><span data-l="en">Publications</span></a>
+      <a href="#talks"><span data-l="ko">발표</span><span data-l="en">Presentations</span></a>
+      <a href="#projects"><span data-l="ko">연구과제</span><span data-l="en">Projects</span></a>
       <a href="#awards"><span data-l="ko">수상</span><span data-l="en">Awards</span></a>
-      <a href="#methods"><span data-l="ko">분석방법</span><span data-l="en">Methods</span></a>
       <a href="#contact"><span data-l="ko">연락처</span><span data-l="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
@@ -360,17 +364,16 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
       <div>
         <div class="coords">
           <span><span data-l="ko">해운항만 물류 연구자</span><span data-l="en">Maritime logistics &amp; port researcher</span></span>
-          <span><span data-l="ko">인천 · 서울</span><span data-l="en">Incheon · Seoul, Korea</span></span>
-          <span class="mono">37.38°N 126.63°E</span>
+          <span><span data-l="ko">서울</span><span data-l="en">Seoul, Korea</span></span>
         </div>
         <h1>
           <span data-l="ko"><span class="big">최영서</span><span class="sub">Youngseo Choi</span></span>
           <span data-l="en">Youngseo<br>Choi<span class="sub">최영서</span></span>
         </h1>
-        <p class="lede" data-l="ko"><strong>해운항만 물류</strong>와 <strong>항만 경영</strong>을 연구하는 물류경영학 박사입니다. 인천대학교에서 박사학위를 받았고 <strong>30편이 넘는 학술지 논문</strong>을 발표했습니다. 지속가능한 항만 운영, LNG 벙커링·북극 물류 등 <strong>해상 리스크 관리</strong>, 항만 효율성 평가를 전문으로 하며, 실증 데이터와 구조 모형으로 현장의 문제를 풉니다. 이 방법론으로 <strong>해운 탈탄소</strong>와 친환경 항만 전환에 기여하고자 합니다.</p>
-        <p class="lede" data-l="en">I research <strong>maritime logistics</strong> and <strong>port management</strong>, with a Ph.D. from Incheon National University and <strong>more than 30 peer-reviewed journal articles</strong>. I specialize in sustainable port operations, <strong>maritime risk management</strong> such as LNG bunkering and Arctic logistics, and port efficiency, using empirical data and structural modelling to solve real-world maritime problems. I aim to apply these methods to <strong>shipping decarbonization</strong> and the transition to green ports.</p>
+        <p class="lede" data-l="ko"><strong>북극항로와 해운항만 물류</strong>를 연구하는 물류경영학 박사이자 (사)한국북극항로협회 부연구위원입니다.<br>북극 물류, LNG 벙커링 등 <strong>해상 리스크</strong>, 항만 효율성, <strong>친환경 항만 전환</strong>을 주제로 <strong>30편 이상의 학술지 논문</strong>을 발표했습니다.</p>
+        <p class="lede" data-l="en">I research <strong>Arctic shipping and maritime logistics</strong> as an Associate Research Fellow at the Korea Arctic Shipping Association (KASA), with a Ph.D. in Logistics Management.<br>My work on Arctic logistics, <strong>maritime risk</strong> such as LNG bunkering, port efficiency and the <strong>green port transition</strong> has appeared in <strong>more than 30 journal articles</strong>.</p>
         <div class="hero-meta">
-          <div class="now"><span class="dot" aria-hidden="true"></span><span data-l="ko">(사)한국북극항로협회 부연구위원 · 2026년 7월부터</span><span data-l="en">Associate Research Fellow, Korea Arctic Sea Route Association · since July 2026</span></div>
+          <div class="now"><span class="dot" aria-hidden="true"></span><span data-l="ko">(사)한국북극항로협회 부연구위원 · 2026년 7월부터</span><span data-l="en">Associate Research Fellow, Korea Arctic Shipping Association (KASA) · since July 2026</span></div>
           <div class="hero-links">
             <a href="https://orcid.org/0009-0001-7292-2894" target="_blank" rel="noopener">ORCID ↗</a>
             <a href="https://scholar.google.com/citations?user=dK9TJJ0AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
@@ -386,7 +389,7 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
       <div class="fig"><b>26</b><span data-l="ko">학회 발표</span><span data-l="en">conference presentations</span></div>
       <div class="fig"><b>18</b><span data-l="ko">수상</span><span data-l="en">awards and honors</span></div>
       <div class="fig"><b>2</b><span data-l="ko">해양수산부 장관상</span><span data-l="en">Minister of Oceans and Fisheries Awards</span></div>
-      <div class="fig"><b>4.42</b><span data-l="ko">박사과정 평점 (4.5 만점)</span><span data-l="en">Ph.D. GPA (out of 4.5)</span></div>
+      <div class="fig"><b>8</b><span data-l="ko">주저자 논문</span><span data-l="en">first-author articles</span></div>
     </div>
   </div>
 
@@ -433,7 +436,7 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
             <div class="when"><span class="current"><span data-l="ko">2026.07 – 현재</span><span data-l="en">Jul 2026 – now</span></span><br><span data-l="ko">서울</span><span data-l="en">Seoul</span></div>
             <div>
               <h3><span data-l="ko">부연구위원</span><span data-l="en">Associate Research Fellow</span></h3>
-              <p class="org"><span data-l="ko">(사)한국북극항로협회</span><span data-l="en">Korea Arctic Sea Route Association</span></p>
+              <p class="org"><span data-l="ko">(사)한국북극항로협회</span><span data-l="en">Korea Arctic Shipping Association (KASA)</span></p>
             </div>
           </article>
           <article class="entry">
@@ -497,20 +500,20 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
 
   <section class="block" id="education">
     <div class="wrap">
-      <div class="label"><h2><span data-l="ko">학력</span><span data-l="en">Education</span><small><span data-l="ko">학위와 학위논문</span><span data-l="en">Degrees and theses</span></small></h2></div>
+      <div class="label"><h2><span data-l="ko">학력</span><span data-l="en">Education</span><small><span data-l="ko">학위 · 장학 · 학회 활동</span><span data-l="en">Degrees, scholarships and memberships</span></small></h2></div>
       <div class="content">
         <div class="entries">
           <article class="entry">
             <div class="when"><span data-l="ko">2022.09 – 2025.08</span><span data-l="en">2022 – 2025</span></div>
-            <div><h3><span data-l="ko">물류경영학 박사</span><span data-l="en">Ph.D. in Logistics Management</span></h3><p class="org"><span data-l="ko">인천대학교 동북아물류대학원 물류경영학과</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p><p class="gpa">GPA 4.42 / 4.5</p></div>
+            <div><h3><span data-l="ko">물류경영학 박사</span><span data-l="en">Ph.D. in Logistics Management</span></h3><p class="org"><span data-l="ko">인천대학교 동북아물류대학원 물류경영학과</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p></div>
           </article>
           <article class="entry">
             <div class="when"><span data-l="ko">2020.09 – 2022.08</span><span data-l="en">2020 – 2022</span></div>
-            <div><h3><span data-l="ko">물류경영학 석사</span><span data-l="en">M.Sc. in Logistics Management</span></h3><p class="org"><span data-l="ko">인천대학교 동북아물류대학원 물류경영학과</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p><p class="gpa">GPA 4.44 / 4.5</p></div>
+            <div><h3><span data-l="ko">물류경영학 석사</span><span data-l="en">M.Sc. in Logistics Management</span></h3><p class="org"><span data-l="ko">인천대학교 동북아물류대학원 물류경영학과</span><span data-l="en">Graduate School of Logistics, Incheon National University</span></p></div>
           </article>
           <article class="entry">
             <div class="when">2015 – 2020</div>
-            <div><h3><span data-l="ko">중영국제학과 학사</span><span data-l="en">B.A. in Chinese (Chinese–English Bilingual Specialization)</span></h3><p class="org"><span data-l="ko">상하이교통대학교 (Shanghai Jiao Tong University), 중국</span><span data-l="en">Shanghai Jiao Tong University, China</span></p><p class="gpa">GPA 3.28 / 4.00</p></div>
+            <div><h3><span data-l="ko">중영국제학과 학사</span><span data-l="en">B.A. in Chinese (Chinese–English Bilingual Specialization)</span></h3><p class="org"><span data-l="ko">상하이교통대학교 (Shanghai Jiao Tong University), 중국</span><span data-l="en">Shanghai Jiao Tong University, China</span></p></div>
           </article>
         </div>
         <div class="theses">
@@ -531,6 +534,23 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
             <div class="facts"><span><span data-l="ko">지도교수 여기태</span><span data-l="en">Supervisor: Prof. Gi-tae Yeo</span></span></div>
           </article>
         </div>
+        <div class="pairs">
+          <div>
+            <h3><span data-l="ko">장학</span><span data-l="en">Scholarships and grants</span></h3>
+            <dl class="kv">
+              <dt class="mono">2021–2025</dt><dd><strong><span data-l="ko">BK21 장학금</span><span data-l="en">Brain Korea 21 (BK21) Program Scholarship</span></strong><small><span data-l="ko">한국연구재단</span><span data-l="en">National Research Foundation of Korea</span></small></dd>
+              <dt class="mono">2020–2024</dt><dd><strong><span data-l="ko">해운항만물류 전문인력 양성사업 고급과정</span><span data-l="en">Advanced Program for Shipping, Port, and Logistics Professionals Grant</span></strong><small><span data-l="ko">해양수산부</span><span data-l="en">Ministry of Oceans and Fisheries</span></small></dd>
+            </dl>
+          </div>
+          <div>
+            <h3><span data-l="ko">학회 회원</span><span data-l="en">Memberships</span></h3>
+            <dl class="kv">
+              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국해운물류학회</span><span data-l="en">Korean Association of Shipping and Logistics</span></dd>
+              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국시베리아학회</span><span data-l="en">Korean Association of Siberian Studies</span></dd>
+              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국로지스틱스학회</span><span data-l="en">Korea Logistics Society</span></dd>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -539,17 +559,20 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
     <div class="wrap">
       <div class="label"><h2><span data-l="ko">논문</span><span data-l="en">Publications</span><small><span data-l="ko">학술지 논문 34편 · 주저자 8편</span><span data-l="en">34 journal articles · 8 as first author</span></small></h2></div>
       <div class="content">
-        <p class="note" data-l="ko">논문 제목과 학술지명은 영문 표기를 따릅니다. ‘국문’ 표시는 한국어로 쓰인 논문입니다.</p>
-        <div class="stack" id="pub-list"></div>
+        <p class="note" data-l="ko">처음에는 주저자 논문만 보여줍니다. 논문 제목과 학술지명은 영문 표기를 따르며, ‘국문’ 표시는 한국어로 쓰인 논문입니다.</p>
+        <p class="note" data-l="en">First-author articles are shown first.</p>
+        <div class="stack folded" id="pub-list"></div>
+        <button class="more-btn" type="button" data-fold="pub-list"></button>
       </div>
     </div>
   </section>
 
   <section class="block" id="talks">
     <div class="wrap">
-      <div class="label"><h2><span data-l="ko">학회 발표</span><span data-l="en">Talks</span><small><span data-l="ko">26건 · 대표발표 12건</span><span data-l="en">26 presentations · 12 as lead presenter</span></small></h2></div>
+      <div class="label"><h2><span data-l="ko">학회 발표</span><span data-l="en">Conference Presentations</span><small><span data-l="ko">26건 · 대표발표 12건</span><span data-l="en">26 presentations · 12 as lead presenter</span></small></h2></div>
       <div class="content">
-        <ul class="talks" id="talk-list"></ul>
+        <ul class="talks folded" id="talk-list"></ul>
+        <button class="more-btn" type="button" data-fold="talk-list"></button>
       </div>
     </div>
   </section>
@@ -559,6 +582,16 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
       <div class="label"><h2><span data-l="ko">연구과제</span><span data-l="en">Projects</span><small><span data-l="ko">참여 연구과제</span><span data-l="en">Research projects</span></small></h2></div>
       <div class="content">
         <ul class="projects">
+          <li><details open>
+            <summary>
+              <span class="yr">2026.04–</span>
+              <span class="pt"><span data-l="ko">북극新항로 개척을 위한 친환경 쇄빙컨테이너선 개발</span><span data-l="en">Development of an Eco-friendly Icebreaking Container Ship for New Arctic Sea Routes</span><small><span data-l="ko">해양수산부 국가연구개발사업</span><span data-l="en">National R&amp;D program, Ministry of Oceans and Fisheries</span></small></span>
+              <span class="cc"><span class="status"><span data-l="ko">진행 중</span><span data-l="en">Ongoing</span></span></span>
+            </summary>
+            <div class="body">
+              <dl><dt><span data-l="ko">역할</span><span data-l="en">Role</span></dt><dd><span data-l="ko">참여연구원</span><span data-l="en">Participating Researcher</span></dd><dt><span data-l="ko">기간</span><span data-l="en">Period</span></dt><dd><span data-l="ko">2026.04 – 현재</span><span data-l="en">Apr 2026 – present</span></dd></dl>
+            </div>
+          </details></li>
           <li><details open>
             <summary>
               <span class="yr">2025.06–12</span>
@@ -592,14 +625,15 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
     <div class="wrap">
       <div class="label"><h2><span data-l="ko">수상</span><span data-l="en">Awards</span><small><span data-l="ko">수상 18건</span><span data-l="en">18 awards and honors</span></small></h2></div>
       <div class="content">
-        <ul class="talks awards" id="award-list"></ul>
+        <ul class="talks awards folded" id="award-list"></ul>
+        <button class="more-btn" type="button" data-fold="award-list"></button>
       </div>
     </div>
   </section>
 
   <section class="block" id="methods">
     <div class="wrap">
-      <div class="label"><h2><span data-l="ko">분석 방법</span><span data-l="en">Methods</span><small><span data-l="ko">분석 도구</span><span data-l="en">Analytical toolkit</span></small></h2></div>
+      <div class="label"><h2><span data-l="ko">분석 방법</span><span data-l="en">Research Methods</span><small><span data-l="ko">정량·모형 분석 방법</span><span data-l="en">Quantitative and modelling methods</span></small></h2></div>
       <div class="content">
         <div class="methods">
           <div><h3><span data-l="ko">위험 평가·구조 모형</span><span data-l="en">Risk assessment and structural modelling</span></h3><ul>
@@ -626,30 +660,6 @@ footer .wrap { padding-block: 28px 40px; color: var(--muted); font-size: var(--s
     </div>
   </section>
 
-  <section class="block" id="credentials">
-    <div class="wrap">
-      <div class="label"><h2><span data-l="ko">장학·학회</span><span data-l="en">Grants</span><small><span data-l="ko">장학과 학회 활동</span><span data-l="en">Scholarships and memberships</span></small></h2></div>
-      <div class="content">
-        <div class="pairs">
-          <div>
-            <h3><span data-l="ko">장학</span><span data-l="en">Scholarships and grants</span></h3>
-            <dl class="kv">
-              <dt class="mono">2021–2025</dt><dd><strong><span data-l="ko">BK21 장학금</span><span data-l="en">Brain Korea 21 (BK21) Program Scholarship</span></strong><small><span data-l="ko">한국연구재단</span><span data-l="en">National Research Foundation of Korea</span></small></dd>
-              <dt class="mono">2020–2024</dt><dd><strong><span data-l="ko">해운항만물류 전문인력 양성사업 고급과정</span><span data-l="en">Advanced Program for Shipping, Port, and Logistics Professionals Grant</span></strong><small><span data-l="ko">해양수산부</span><span data-l="en">Ministry of Oceans and Fisheries</span></small></dd>
-            </dl>
-          </div>
-          <div>
-            <h3><span data-l="ko">학회 회원</span><span data-l="en">Memberships</span></h3>
-            <dl class="kv">
-              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국해운물류학회</span><span data-l="en">Korean Association of Shipping and Logistics</span></dd>
-              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국시베리아학회</span><span data-l="en">Korean Association of Siberian Studies</span></dd>
-              <dt><span data-l="ko">회원</span><span data-l="en">Member</span></dt><dd><span data-l="ko">한국로지스틱스학회</span><span data-l="en">Korea Logistics Society</span></dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="block" id="contact">
     <div class="wrap">
@@ -770,9 +780,12 @@ const AWARDS = [
   ["2020.12", { ko: "신진학자상", en: "Emerging Scholar Award" }, KASPS]
 ];
 
+const SHOWN = 5;
 const UI = {
-  ko: { copy: "복사", copied: "복사됨", selected: "선택됨" },
-  en: { copy: "Copy", copied: "Copied", selected: "Selected" }
+  ko: { copy: "복사", copied: "복사됨", selected: "선택됨", less: "접기",
+        "pub-list": `전체 ${PUBS.length}편 보기`, "talk-list": `전체 ${TALKS.length}건 보기`, "award-list": `전체 ${AWARDS.length}건 보기` },
+  en: { copy: "Copy", copied: "Copied", selected: "Selected", less: "Show less",
+        "pub-list": `Show all ${PUBS.length} articles`, "talk-list": `Show all ${TALKS.length} presentations`, "award-list": `Show all ${AWARDS.length} awards` }
 };
 const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
 const both = (ko, en) => `<span data-l="ko">${esc(ko)}</span><span data-l="en">${esc(en)}</span>`;
@@ -780,15 +793,16 @@ let lang = document.documentElement.getAttribute("data-lang") === "en" ? "en" : 
 
 function renderStatic() {
   const years = [...new Set(PUBS.map(p => p[0]))];
+  const first = au => au.startsWith("Choi, Y. S.");
   document.getElementById("pub-list").innerHTML = years.map(y => `
-    <div class="pub-year"><div class="y">${y}</div><ul class="pubs">${
+    <div class="pub-year${PUBS.some(p => p[0] === y && first(p[1])) ? "" : " extra"}"><div class="y">${y}</div><ul class="pubs">${
       PUBS.filter(p => p[0] === y).map(([, au, t, j, v, ko]) => `
-        <li><span class="t">${esc(t)}</span>${ko ? `<span class="ltag">${both("국문", "In Korean")}</span>` : ""}<span class="meta">${esc(au).replace("Choi, Y. S.", '<span class="me">Choi, Y. S.</span>')} · <em>${esc(j)}</em>${v ? ", " + esc(v) : ""}</span></li>`).join("")
+        <li${first(au) ? "" : ' class="extra"'}><span class="t">${esc(t)}</span>${ko ? `<span class="ltag">${both("국문", "In Korean")}</span>` : ""}<span class="meta">${esc(au).replace("Choi, Y. S.", '<span class="me">Choi, Y. S.</span>')} · <em>${esc(j)}</em>${v ? ", " + esc(v) : ""}</span></li>`).join("")
     }</ul></div>`).join("");
-  document.getElementById("talk-list").innerHTML = TALKS.map(([y, t, v, lead]) => `
-    <li><span class="y">${y}</span><span>${esc(t)}<span class="venue">${esc(v)}</span></span><span class="fmt${lead ? " lead" : ""}">${lead ? both("대표발표", "Lead presenter") : both("공동", "Co-author")}</span></li>`).join("");
-  document.getElementById("award-list").innerHTML = AWARDS.map(([d, a, o]) => `
-    <li><span class="y">${d}</span><span>${both(a.ko, a.en)}<span class="venue">${both(o.ko, o.en)}</span></span></li>`).join("");
+  document.getElementById("talk-list").innerHTML = TALKS.map(([y, t, v, lead], i) => `
+    <li${i < SHOWN ? "" : ' class="extra"'}><span class="y">${y}</span><span>${esc(t)}<span class="venue">${esc(v)}</span></span><span class="fmt${lead ? " lead" : ""}">${lead ? both("대표발표", "Lead presenter") : both("공동", "Co-author")}</span></li>`).join("");
+  document.getElementById("award-list").innerHTML = AWARDS.map(([d, a, o], i) => `
+    <li${i < SHOWN ? "" : ' class="extra"'}><span class="y">${d}</span><span>${both(a.ko, a.en)}<span class="venue">${both(o.ko, o.en)}</span></span></li>`).join("");
 }
 
 function applyLang(next, remember) {
@@ -797,12 +811,27 @@ function applyLang(next, remember) {
   document.documentElement.lang = lang;
   document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.set === lang)));
   document.querySelectorAll(".copy").forEach(b => { b.textContent = UI[lang].copy; });
+  document.querySelectorAll(".more-btn").forEach(b => {
+    const folded = document.getElementById(b.dataset.fold).classList.contains("folded");
+    b.textContent = folded ? UI[lang][b.dataset.fold] : UI[lang].less;
+    b.setAttribute("aria-expanded", String(!folded));
+  });
   if (remember) { try { localStorage.setItem("ycs-lang", lang); } catch (e) {} }
 }
 
 document.querySelector(".lang").addEventListener("click", e => {
   const b = e.target.closest("button[data-set]");
   if (b && b.dataset.set !== lang) applyLang(b.dataset.set, true);
+});
+
+document.querySelectorAll(".more-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const list = document.getElementById(btn.dataset.fold);
+    const opening = list.classList.contains("folded");
+    list.classList.toggle("folded");
+    applyLang(lang, false);
+    if (!opening) list.closest("section").scrollIntoView();
+  });
 });
 
 document.querySelectorAll(".copy").forEach(btn => {
